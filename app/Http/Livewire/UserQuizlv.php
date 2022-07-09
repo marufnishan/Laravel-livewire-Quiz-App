@@ -16,6 +16,7 @@ class UserQuizlv extends Component
     public $sections;
     public $count = 0;
     public $sectionId;
+    public $examduration;
     public $quizSize = 1;
     public $quizPecentage;
     public $currentQuestion;
@@ -46,7 +47,7 @@ class UserQuizlv extends Component
             ->count();
 
         // Caclculate score for upding the quiz_header table before finishing the quid.
-        $this->quizPecentage = round(($this->currectQuizAnswers / $this->totalQuizQuestions) * 100, 2);
+        $this->quizPecentage = round(($this->currectQuizAnswers / $this->quizSize) * 100, 2);
 
         // Push all the question ids to quiz_header table to retreve them while displaying the quiz details
         $this->quizid->questions_taken = serialize($this->answeredQuestions);
@@ -131,12 +132,36 @@ class UserQuizlv extends Component
             'quiz_size' => $this->quizSize,
             'section_id' => $this->sectionId,
         ]);
+        $this->examduration=$this->quizSize;
+
         $this->count = 1;
         // Get the first/next question for the quiz.
         // Since we are using LiveWire component for quiz, the first quesiton and answers will be displayed through mount function.
         $this->currentQuestion = $this->getNextQuestion();
         $this->setupQuiz = false;
         $this->quizInProgress = true;
+    }
+
+    public function submitreasult(){
+        // Push all the question ids to quiz_header table to retreve them while displaying the quiz details
+        $this->quizid->questions_taken = serialize($this->answeredQuestions);
+
+        // Retrive the answer_id and value of answers clicked by the user and push them to Quiz table.
+        list($answerId, $isChoiceCorrect) = explode(',', $this->userAnswered[0]);
+
+        // Insert the current question_id, answer_id and whether it is correnct or wrong to quiz table.
+        Quiz::create([
+            'user_id' => auth()->id(),
+            'quiz_header_id' => $this->quizid->id,
+            'section_id' => $this->currentQuestion->section_id,
+            'question_id' => $this->currentQuestion->id,
+            'answer_id' => $answerId,
+            'is_correct' => $isChoiceCorrect
+        ]);
+
+        // Save the record
+        $this->quizid->save();
+       return $this->showResults();
     }
 
     public function nextQuestion()
