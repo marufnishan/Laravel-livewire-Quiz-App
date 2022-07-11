@@ -6,6 +6,7 @@ use App\Http\Controllers\AppUserController;
 use App\Http\Controllers\ManageUserController;
 use App\Http\Controllers\SectionsController;
 use App\Http\Controllers\QuestionsController;
+use App\Http\Livewire\ChampionshipPractice;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,8 @@ use App\Http\Controllers\QuestionsController;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+
+Route::get('/champpractice',ChampionshipPractice::class)->name('champPractice');
 
 Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(function () {
 

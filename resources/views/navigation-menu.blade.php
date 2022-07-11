@@ -14,16 +14,36 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     @hasrole('admin')
                     <x-jet-nav-link href="{{ route('adminhome') }}" :active="request()->routeIs('adminhome')">
-                        {{ __('Admin Home') }}
+                        {{ __('এডমিন হোম') }}
                     </x-jet-nav-link>
                     @endhasrole
                     @hasrole('user|admin|superadmin')
                     <x-jet-nav-link href="{{ route('startQuiz') }}" :active="request()->routeIs('startQuiz')">
-                        {{ __('Take Quiz') }}
+                        {{ __('কুইজ') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('userQuizHome') }}" :active="request()->routeIs('userQuizHome')">
-                        {{ __('User Quiz Home') }}
+                        {{ __('ইউজার কুইজ হোম') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('champPractice') }}" :active="request()->routeIs('userQuizHome')">
+                        {{ __('চ্যাম্পিয়নশিপ প্রস্তুতি') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('userQuizHome') }}" :active="request()->routeIs('userQuizHome')">
+                        {{ __('চ্যাম্পিয়নশিপ') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('userQuizHome') }}" :active="request()->routeIs('userQuizHome')">
+                        {{ __('চাকরির প্রস্তুতি') }}
+                    </x-jet-nav-link>
+                    
+                    <div class="dropdown" style="display: inherit">
+                    <x-jet-nav-link href="{{ route('userQuizHome') }}" :active="request()->routeIs('userQuizHome')">
+                        {{ __('লিডারবোর্ড') }}
+                    </x-jet-nav-link>
+                        <div class="dropdown-content">
+                            <a href="#">কুইজ</a>
+                            <a href="#">চাকরির প্রস্তুতি</a>
+                            <a href="#">চ্যাম্পিয়নশিপ</a>
+                        </div>
+                    </div>
                     @endhasrole
                 </div>
             </div>
