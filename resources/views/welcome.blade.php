@@ -27,24 +27,45 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="line-height: 2rem;
                         font-weight: 500;
                         font-size: 0.875rem;">
+                        @hasrole('admin')
+                        <a class="nav-link" href="{{ route('adminhome') }}" :active="request()->routeIs('adminhome')">এডমিন হোম</a>
+                        @endhasrole
+                        @hasrole('user|admin|superadmin')
+                    <a class="nav-link" href="{{ route('startQuiz') }}" :active="request()->routeIs('startQuiz')">কুইজ
+                    </a>
+                    <a class="nav-link" href="{{ route('userQuizHome') }}" :active="request()->routeIs('userQuizHome')">ইউজার কুইজ হোম
+                    </a>
+                    @endhasrole
                         <li class="nav-item">
-                            <a class="nav-link" href="/">হোম</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('champPractice') }}">চ্যাম্পিয়নশিপ প্রস্তুতি</a>
+                            <a class="nav-link" href="{{ route('champPractice') }}" :active="request()->routeIs('champPractice')">চ্যাম্পিয়নশিপ প্রস্তুতি</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">চ্যাম্পিয়নশিপ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">চাকরির প্রস্তুতি</a>
+                            <div class="dropdown"><a class="nav-link">চাকরির প্রস্তুতি
+                            </a>
+                                <div class="dropdown-content">
+                                    <a href="#">বাংলা ভাষা ও সাহিত্য</a>
+                                    <a href="#">ইংরেজি ভাষা ও সাহিত্য</a>
+                                    <a href="#">বাংলােদশ বিষয়াবলী</a>
+                                    <a href="#">আন্তর্জাতিক বিষয়াবলী</a>
+                                    <a href="#">ভূগোল ( বাংলাদেশ ও বিশ্ব ) পরিবেশ ও দুর্যোগ ব্যবস্থাপনা</a>
+                                    <a href="#">সাধারণ বিজ্ঞান</a>
+                                    <a href="#">কম্পিউটার ও তথ্য প্রযুক্তি</a>
+                                    <a href="#">গাণিতিক যুক্তি</a>
+                                    <a href="#">মানসিক দক্ষতা</a>
+                                    <a href="#">নৈতিকতা মূল্যবোধ ও সুশাসন</a>
+                                    <a href="#">সমন্বিত</a>
+                                </div>
+                            </div>
                         </li>
                         <li class="nav-item">
                             
                                 <div class="dropdown"><a class="nav-link">লিডারবোর্ড
                                 </a>
                                     <div class="dropdown-content">
-                                        <a href="#">কুইজ</a>
+                                        <a href="{{route('QuizledarBoard')}}">কুইজ</a>
                                         <a href="#">চাকরির প্রস্তুতি</a>
                                         <a href="#">চ্যাম্পিয়নশিপ</a>
                                     </div>
@@ -65,7 +86,13 @@
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 @auth
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('userQuizHome') }}">Home</a>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+        
+                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                        this.closest('form').submit();">Logout
+                                        </a>
+                                    </form>
                                 </li>
                                 @else
                                 <li>
