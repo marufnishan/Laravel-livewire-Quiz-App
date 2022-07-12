@@ -8,6 +8,7 @@ use App\Http\Controllers\SectionsController;
 use App\Http\Controllers\QuestionsController;
 use App\Http\Livewire\ChampionshipComponent;
 use App\Http\Livewire\ChampionshipPractice;
+use App\Http\Livewire\EnrollComponent;
 use App\Http\Livewire\LeaderBoardComponent;
 use App\Http\Livewire\UserQuizlv;
 
@@ -33,6 +34,7 @@ Route::get('/quizledarboard',LeaderBoardComponent::class)->name('QuizledarBoard'
 Route::post('/deleteQuiz/{id}', [LeaderBoardComponent::class, 'deleteQuiz'])
         ->name('deleteQuiz');
 Route::get('/quizlavel/{id}', UserQuizlv::class)->name('quizLavel');
+Route::get('/champinroll/{id}', EnrollComponent::class)->name('champEnroll');
 
 Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(function () {
 
