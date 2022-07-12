@@ -33,8 +33,9 @@ class AdminController extends Controller
 
         $quizesTaken = QuizHeader::count();
 
-        $userQuizzes = QuizHeader::orderBy('id', 'desc')
-            ->paginate(10);
+        $userQuizzes = QuizHeader::orderBy('score', 'DESC')
+        ->orderBy('quiz_size', 'DESC')
+        ->paginate(10);
 
         $quizAverage = QuizHeader::avg('score');
 

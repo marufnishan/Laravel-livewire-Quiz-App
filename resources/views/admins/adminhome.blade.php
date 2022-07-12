@@ -74,6 +74,12 @@
             </div>
         </div>
     </section>
+    {{-- Footer Start --}}
+    <div class="container-fluid py-5 "
+    style="background-color: #FFFFFF;box-shadow: 2px rgba(0, 0, 0, 0.1);text-align: center;">
+    <p>@Copyright Nishanbd 2022</p>
+</div>
+{{-- Footer End --}}
     @push('js')
     <script>
         const GlobalQuizChart = new Chartisan({

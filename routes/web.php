@@ -6,6 +6,7 @@ use App\Http\Controllers\AppUserController;
 use App\Http\Controllers\ManageUserController;
 use App\Http\Controllers\SectionsController;
 use App\Http\Controllers\QuestionsController;
+use App\Http\Livewire\ChampionshipComponent;
 use App\Http\Livewire\ChampionshipPractice;
 use App\Http\Livewire\LeaderBoardComponent;
 
@@ -25,9 +26,11 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::get('/champpractice',ChampionshipPractice::class)->name('champPractice');
-Route::get('/championship',ChampionshipPractice::class)->name('Championship');
+Route::get('/championship',ChampionshipComponent::class)->name('Championship');
 Route::get('/jobpeparation',ChampionshipPractice::class)->name('jobPeparation');
 Route::get('/quizledarboard',LeaderBoardComponent::class)->name('QuizledarBoard');
+Route::post('/deleteQuiz/{id}', [LeaderBoardComponent::class, 'deleteQuiz'])
+        ->name('deleteQuiz');
 
 Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(function () {
 

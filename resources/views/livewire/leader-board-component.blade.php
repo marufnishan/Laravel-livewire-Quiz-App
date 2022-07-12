@@ -1,11 +1,11 @@
-
-    <x-slot name="header">
-        <div class="md:flex justify-between">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('লিডারবোর্ড') }}
-            </h2>
-        </div>
-    </x-slot>
+<div>
+        <x-slot name="header">
+            <div class="md:flex justify-between">
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                    {{ __('লিডারবোর্ড') }}
+                </h2>
+            </div>
+        </x-slot>
 
     <div class="max-w-7xl m-4 mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
@@ -140,15 +140,15 @@
                                                 <div class="text-sm text-gray-900">{{ $quiz->updated_at->diffForHumans()}}</div>
                                             </td>
                                             <td class="sm:flex align-middle justify-center items-center px-6 py-1 text-right text-sm font-medium">
-                                                <a href="#" class="text-green-500 hover:text-green-700">
+                                                <a href="{{route('userQuizDetails', $quiz->id)}}" class="text-green-500 hover:text-green-700">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="text-blue-500 hover:text-blue-700 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
                                                     </svg>
                                                 </a>
-                                                <form action="{{route('deleteUserQuiz', $quiz->id)}}" method="post">
+                                                <form action="{{route('deleteQuiz', $quiz->id)}}" method="post">
                                                     @csrf
                                                     <a class="text-red-500 hover:text-red-700">
-                                                        <button type="submit">
+                                                        <button type="submit" onclick="return confirm('Sure Want Delete?')">
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 pt-1" viewBox="0 0 20 20" fill="currentColor">
                                                                 <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
                                                             </svg>
@@ -174,7 +174,7 @@
     <script>
         const chart = new Chartisan({
             el: '#chart',
-            url: "@chart('user_quiz')",
+            url: "@chart('global_quizzes')",
             loader: {
                 color: '#ff00ff',
                 size: [60, 60],
@@ -192,3 +192,4 @@
         });
     </script>
     @endpush
+</div>

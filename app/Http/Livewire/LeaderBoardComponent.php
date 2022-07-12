@@ -10,6 +10,12 @@ use Livewire\Component;
 
 class LeaderBoardComponent extends Component
 {
+    public function deleteQuiz($id)
+    {
+        $quizheader = QuizHeader::findOrFail($id);
+            $quizheader->delete();
+            return redirect()->back();
+    }
     public function render()
     {
         $quizAverage = QuizHeader::max('score');

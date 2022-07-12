@@ -23,7 +23,7 @@
                                         <path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
                                     </svg>
                                     <h2 class="title-font font-medium text-xl text-gray-900">{{$sections->count()}}</h2>
-                                    <p class="leading-relaxed">Sections</p>
+                                    <p class="leading-relaxed">Total Lavel</p>
                                 </div>
                             </div>
                             <div class="p-4 md:w-1/4 sm:w-1/2 w-full ">
@@ -34,7 +34,7 @@
                                         <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"></path>
                                     </svg>
                                     <h2 class="title-font font-medium text-xl text-gray-900">{{$activeUsers}}</h2>
-                                    <p class="leading-relaxed">Users</p>
+                                    <p class="leading-relaxed">Total Students</p>
                                 </div>
                             </div>
                             <div class="p-4 md:w-1/4 sm:w-1/2 w-full ">
@@ -43,7 +43,7 @@
                                         <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"></path>
                                     </svg>
                                     <h2 class="title-font font-medium text-xl text-gray-900">{{$questionsCount}}</h2>
-                                    <p class="leading-relaxed">Questions</p>
+                                    <p class="leading-relaxed">Total Questions</p>
                                 </div>
                             </div>
                             <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
@@ -156,6 +156,12 @@
             </div>
         </div>
     </div>
+    {{-- Footer Start --}}
+    <div class="container-fluid py-5 "
+    style="background-color: #FFFFFF;box-shadow: 2px rgba(0, 0, 0, 0.1);text-align: center;">
+    <p>@Copyright Nishanbd 2022</p>
+</div>
+{{-- Footer End --}}
     @push('js')
     <script>
         const chart = new Chartisan({

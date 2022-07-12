@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg" style="background-color: #FFFFFF;box-shadow: 0 2px rgba(0, 0, 0, 0.1);">
     <div class="container">
         <a href="/">
-            <img src="../assets/img/logo/logo.jpg" alt="" style="height: 50px;width:80px;">
+            <img src="{{asset('assets/img/logo/logo.jpg')}}" alt="" style="height: 50px;width:80px;">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,19 +13,19 @@
                 font-weight: 500;
                 font-size: 0.875rem;">
                 @hasrole('admin')
-                <a class="nav-link" href="{{ route('adminhome') }}" :active="request()->routeIs('adminhome')">এডমিন হোম</a>
+                <a class="nav-link" href="{{ route('adminhome') }}" :active="request()->routeIs('adminhome')">এডমিন 
+                    ড্যাশবোর্ড</a>
                 @endhasrole
                 @hasrole('user|admin|superadmin')
-            <a class="nav-link" href="{{ route('startQuiz') }}" :active="request()->routeIs('startQuiz')">কুইজ
-            </a>
-            <a class="nav-link" href="{{ route('userQuizHome') }}" :active="request()->routeIs('userQuizHome')">ইউজার কুইজ হোম
+            <a class="nav-link" href="{{ route('userQuizHome') }}" :active="request()->routeIs('userQuizHome')">ইউজার কুইজ 
+                ড্যাশবোর্ড
             </a>
             @endhasrole
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('champPractice') }}" :active="request()->routeIs('champPractice')">চ্যাম্পিয়নশিপ প্রস্তুতি</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">চ্যাম্পিয়নশিপ</a>
+                    <a class="nav-link" href="{{ route('Championship') }}" :active="request()->routeIs('Championship')">চ্যাম্পিয়নশিপ</a>
                 </li>
                 <li class="nav-item">
                     <div class="dropdown"><a class="nav-link">চাকরির প্রস্তুতি

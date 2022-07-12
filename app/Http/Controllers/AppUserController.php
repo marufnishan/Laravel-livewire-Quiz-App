@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Section;
 use App\Models\Question;
 use App\Models\QuizHeader;
+use Illuminate\Support\Facades\Auth;
 
 class AppUserController extends Controller
 {
@@ -26,13 +27,15 @@ class AppUserController extends Controller
             ->orderBy('name')
             ->get();
 
-        $quizesTaken = QuizHeader::count();
+        $quizesTaken = QuizHeader::where('user_id',Auth::user()->id)->count();
 
         $userQuizzes = auth()
             ->user()
             ->quizHeaders()
-            ->orderBy('id', 'desc')
+            ->orderBy('score', 'DESC')
+            ->orderBy('quiz_size', 'DESC')
             ->paginate(10);
+
 
         $quizAverage = auth()->user()->quizHeaders()->avg('score');
 
