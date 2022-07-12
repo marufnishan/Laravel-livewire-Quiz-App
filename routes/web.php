@@ -9,6 +9,7 @@ use App\Http\Controllers\QuestionsController;
 use App\Http\Livewire\ChampionshipComponent;
 use App\Http\Livewire\ChampionshipPractice;
 use App\Http\Livewire\LeaderBoardComponent;
+use App\Http\Livewire\UserQuizlv;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::get('/jobpeparation',ChampionshipPractice::class)->name('jobPeparation');
 Route::get('/quizledarboard',LeaderBoardComponent::class)->name('QuizledarBoard');
 Route::post('/deleteQuiz/{id}', [LeaderBoardComponent::class, 'deleteQuiz'])
         ->name('deleteQuiz');
+Route::get('/quizlavel/{id}', UserQuizlv::class)->name('quizLavel');
 
 Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(function () {
 

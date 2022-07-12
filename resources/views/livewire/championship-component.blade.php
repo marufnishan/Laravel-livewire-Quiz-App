@@ -9,102 +9,18 @@
     {{-- Exam Category Start --}}
     <div class="container" style="background-color: #FFFFFF;">
         <div class="row">
-            <div class="col-md-3 d-flex justify-content-around">
+            @foreach ($exams as $exam)
+            <div class="col-md-3 d-flex justify-content-around my-3">
                 <div class="card" style="width: 18rem;">
                     <img src="assets/img/std.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up
-                            the bulk
-                            of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <h5 class="card-title"><b>Title :</b> {{$exam->exam_title}}</h5>
+                        <p class="card-text"><b>Createt At :</b> {{ $exam->updated_at->diffForHumans()}}</p>
+                        <a href="{{route('quizLavel',$exam->id)}}" class="btn btn-primary">Enroll Now</a>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3 d-flex justify-content-around">
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/img/std.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up
-                            the bulk
-                            of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex justify-content-around">
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/img/std.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up
-                            the bulk
-                            of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex justify-content-around">
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/img/std.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up
-                            the bulk
-                            of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex justify-content-around">
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/img/std.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up
-                            the bulk
-                            of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex justify-content-around">
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/img/std.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up
-                            the bulk
-                            of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex justify-content-around">
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/img/std.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up
-                            the bulk
-                            of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex justify-content-around">
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/img/std.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up
-                            the bulk
-                            of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
+            </div>  
+            @endforeach
         </div>
     </div>
 {{-- Exam Category End --}}

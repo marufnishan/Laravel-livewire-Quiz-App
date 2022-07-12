@@ -179,9 +179,9 @@
                         <div class="relative mx-full mb-4">
                             <select name="section" id="section_id" wire:model="sectionId" class="block w-full mt-1 rounded-md bg-gray-100 border-2 border-gray-500 focus:bg-white focus:ring-0">
                                 @if($sections->isEmpty())
-                                <option value="">No Quiz Sections Available Yet</option>
+                                <option value="">{{-- No Quiz Sections Available Yet --}}Quiz Lavel Selected</option>
                                 @else
-                                <option value="">Select a Quiz Section</option>
+                                <option value="">Select a Quiz Lavel</option>
                                 @foreach($sections as $section)
                                 @if($section->questions_count>0)
                                 <option value="{{$section->id}}">{{$section->name}}</option>
@@ -214,10 +214,4 @@
         </div>
     </section>
     @endif
-    {{-- Footer Start --}}
-    <div class="container-fluid py-5 "
-    style="background-color: #FFFFFF;box-shadow: 2px rgba(0, 0, 0, 0.1);text-align: center;">
-    <p>@Copyright Nishanbd 2022</p>
-</div>
-{{-- Footer End --}}
 </div>

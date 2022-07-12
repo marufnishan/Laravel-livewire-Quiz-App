@@ -8,6 +8,7 @@ use App\Models\Section;
 use Livewire\Component;
 use App\Models\Question;
 use App\Models\QuizHeader;
+use Illuminate\Http\Request;
 
 class UserQuizlv extends Component
 {
@@ -65,9 +66,9 @@ class UserQuizlv extends Component
         $this->quizInProgress = false;
         $this->showResult = true;
     }
-    public function render()
+    public function render(Request $req)
     {
-        $this->sections = Section::withcount('questions')->where('is_active', '1')
+        $this->sections = Section::where('exam_id',$req->id)->withcount('questions')->where('is_active', '1')
             ->orderBy('name')
             ->get();
 
