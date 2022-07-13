@@ -21,8 +21,12 @@
                             @if($exam->enroll->user_id == auth()->id() && $exam->enroll->attendance_status	== 'Absent')
                             <a href="{{route('quizLavel',$exam->id)}}" class="btn btn-primary">Participate Now</a>
                             @else
-                            <a href="{{route('userShowreasult',[$exam->id,auth()->id()])}}" type="button" class="btn btn-warning">Show Reasult</a>
-                             @endif
+                                @foreach($lavels as $lavel)
+                                    @if($lavel->exam_id == $exam->id &&  $lavel->user_id == auth()->id() )
+                                        <a href="{{route('userShowreasult',[$exam->id,auth()->id()])}}" type="button" class="btn btn-warning">Show Reasult</a>
+                                    @endif
+                                @endforeach
+                            @endif
                         @else
                         <a href="{{route('champEnroll',$exam->id)}}" class="btn btn-success">Enroll Now</a>
                         @endif
