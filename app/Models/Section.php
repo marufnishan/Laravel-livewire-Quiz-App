@@ -13,6 +13,7 @@ class Section extends Model
         'description',
         'is_active',
         'details',
+        'question_size',
     ];
 
     public function user()

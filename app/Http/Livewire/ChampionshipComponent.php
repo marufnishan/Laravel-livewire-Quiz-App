@@ -3,9 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Exam;
-use App\Models\Question;
-use App\Models\Quiz;
-use App\Models\QuizHeader;
+use App\Models\Section;
 use Livewire\Component;
 
 class ChampionshipComponent extends Component
@@ -14,6 +12,8 @@ class ChampionshipComponent extends Component
     {
         $exams = Exam::where('status', 'Active')
             ->get();
-        return view('livewire.championship-component',['exams'=>$exams]);
+            $lavels = Section::where('user_id',auth()->id())
+            ->get();
+        return view('livewire.championship-component',['exams'=>$exams,'lavels'=>$lavels]);
     }
 }

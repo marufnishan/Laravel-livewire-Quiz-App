@@ -203,7 +203,7 @@
                         <div class="relative mb-4">
                             <select name="quiz_size" id="quiz_size" wire:model="quizSize" class="max-w-full block w-full mt-1 rounded-md bg-gray-100 border-2 border-gray-500 focus:bg-white focus:ring-0">
                                 <option value="">Select</option>
-                                @for ($i = 10; $i <= 200; $i=$i+10) <option value="{{ $i }}">{{ $i }}</option> @endfor
+                                @foreach($sections as $section) <option value="{{ $section->question_size }}">{{ $section->question_size }}</option> @endforeach
                             </select>
                             @error('quizSize') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
                         </div>
