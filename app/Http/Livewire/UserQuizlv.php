@@ -2,18 +2,19 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Enroll;
 use App\Models\Quiz;
 use App\Models\Quote;
 use App\Models\Section;
 use Livewire\Component;
 use App\Models\Question;
 use App\Models\QuizHeader;
-use Illuminate\Http\Request;
 
 class UserQuizlv extends Component
 {
     public $quote;
     public $quizid;
+    public $examid;
     public $sections;
     public $count = 0;
     public $sectionId;
@@ -66,9 +67,9 @@ class UserQuizlv extends Component
         $this->quizInProgress = false;
         $this->showResult = true;
     }
-    public function render(Request $req)
+    public function render()
     {
-        $this->sections = Section::where('exam_id',$req->id)->withcount('questions')->where('is_active', '1')
+        $this->sections = Section::where('exam_id',$this->examid)->withcount('questions')->where('is_active', '1')
             ->orderBy('name')
             ->get();
 
@@ -84,8 +85,9 @@ class UserQuizlv extends Component
         }
     }
 
-    public function mount()
+    public function mount($id)
     {
+        $this->examid =$id;
         $this->quote = Quote::inRandomOrder()->first();
     }
 
@@ -127,6 +129,14 @@ class UserQuizlv extends Component
 
         // Create a new quiz header in quiz_headers table and populate initial quiz information
         // Keep the instance in $this->quizid veriable for later updates to quiz.
+        
+        $inrollstatus = Enroll::Where('user_id',auth()->id())
+        ->Where('exam_id',$this->examid)
+        ->where('attendance_status','Absent')
+        ->first();
+        $inrollstatus->attendance_status = 'Present';
+        $inrollstatus->update();
+
         $this->validate();
         $this->quizid = QuizHeader::create([
             'user_id' => auth()->id(),

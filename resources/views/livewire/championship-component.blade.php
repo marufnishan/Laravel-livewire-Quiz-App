@@ -16,10 +16,15 @@
                     <div class="card-body">
                         <h5 class="card-title"><b>Title :</b> {{$exam->exam_title}}</h5>
                         <p class="card-text"><b>Createt At :</b> {{ $exam->updated_at->diffForHumans()}}</p>
-                       {{--  @if($exam->exam->user_id === auth()->id()) --}}
-                        <a href="{{route('quizLavel',$exam->id)}}" class="btn btn-primary">Participate Now</a>
-                        {{-- @endif --}}
+                        @if(!empty($exam->enroll->user_id))
+                            @if($exam->enroll->user_id == auth()->id() && $exam->enroll->attendance_status	== 'Absent')
+                            <a href="{{route('quizLavel',$exam->id)}}" class="btn btn-primary">Participate Now</a>
+                            @else
+                            <a href="#" class="btn btn-warning">Show Reasut</a>
+                             @endif
+                        @else
                         <a href="{{route('champEnroll',$exam->id)}}" class="btn btn-success">Enroll Now</a>
+                        @endif
                     </div>
                 </div>
             </div>  

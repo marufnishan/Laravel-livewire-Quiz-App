@@ -14,7 +14,7 @@ class EnrollComponent extends Component
         Enroll::create([
             'user_id' => auth()->id(),
             'exam_id' => $id,
-            'attendance_status' => 'Present',
+            'attendance_status' => 'Absent',
         ]);
         return $this->isDisabled = true;
     }
@@ -26,7 +26,7 @@ class EnrollComponent extends Component
 
         $inrollstatus = Enroll::Where('user_id',auth()->id())
         ->Where('exam_id',$this->exams->id)
-        ->where('attendance_status','Present')
+        ->where('attendance_status','Absent')
         ->first();
         if($inrollstatus){
             $this->isDisabled = true;

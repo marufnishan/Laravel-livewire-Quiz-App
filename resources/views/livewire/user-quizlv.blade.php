@@ -179,7 +179,7 @@
                         <div class="relative mx-full mb-4">
                             <select name="section" id="section_id" wire:model="sectionId" class="block w-full mt-1 rounded-md bg-gray-100 border-2 border-gray-500 focus:bg-white focus:ring-0">
                                 @if($sections->isEmpty())
-                                <option value="">{{-- No Quiz Sections Available Yet --}}Quiz Lavel Selected</option>
+                                <option value="">No Quiz Sections Available Yet</option>
                                 @else
                                 <option value="">Select a Quiz Lavel</option>
                                 @foreach($sections as $section)

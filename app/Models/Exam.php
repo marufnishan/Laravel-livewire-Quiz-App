@@ -11,6 +11,6 @@ class Exam extends Model
 
     public function enroll()
     {
-        return $this->belongsTo(Enroll::class, 'enroll_id');
+        return $this->hasOne(Enroll::class);
     }
 }
