@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Enroll;
+use App\Models\Exam;
 use App\Models\Quiz;
 use App\Models\Quote;
 use App\Models\Section;
@@ -144,7 +145,9 @@ class UserQuizlv extends Component
             'section_id' => $this->sectionId,
             'exam_id' => $this->examid,
         ]);
-        $this->examduration=$this->quizSize;
+
+        $exam = Exam::find($this->examid);
+        $this->examduration=$exam->duration;
 
         $this->count = 1;
         // Get the first/next question for the quiz.
