@@ -35,6 +35,8 @@ Route::post('/deleteQuiz/{id}', [LeaderBoardComponent::class, 'deleteQuiz'])
         ->name('deleteQuiz');
 Route::get('/quizlavel/{id}', UserQuizlv::class)->name('quizLavel');
 Route::get('/champinroll/{id}', EnrollComponent::class)->name('champEnroll');
+Route::get('/userShowreasult/{examid}/{usrid}', [AppUserController::class, 'Showreasult'])
+        ->name('userShowreasult');
 
 Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(function () {
 

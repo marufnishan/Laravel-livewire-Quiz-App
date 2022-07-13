@@ -142,6 +142,7 @@ class UserQuizlv extends Component
             'user_id' => auth()->id(),
             'quiz_size' => $this->quizSize,
             'section_id' => $this->sectionId,
+            'exam_id' => $this->examid,
         ]);
         $this->examduration=$this->quizSize;
 

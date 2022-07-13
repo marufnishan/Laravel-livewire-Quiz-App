@@ -14,13 +14,14 @@
                 <div class="card" style="width: 18rem;">
                     <img src="assets/img/std.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title"><b>Title :</b> {{$exam->exam_title}}</h5>
-                        <p class="card-text"><b>Createt At :</b> {{ $exam->updated_at->diffForHumans()}}</p>
+                        <h5 class="card-title"><b> {{$exam->exam_title}}</b></h5>
+                        <p class="card-text"><b>Exam Duration :</b> {{ $exam->duration}} Munites</p>
+                        <p class="card-text"><b>Total Question :</b> {{ $exam->total_question}}</p>
                         @if(!empty($exam->enroll->user_id))
                             @if($exam->enroll->user_id == auth()->id() && $exam->enroll->attendance_status	== 'Absent')
                             <a href="{{route('quizLavel',$exam->id)}}" class="btn btn-primary">Participate Now</a>
                             @else
-                            <a href="#" class="btn btn-warning">Show Reasut</a>
+                            <a href="{{route('userShowreasult',[$exam->id,auth()->id()])}}" type="button" class="btn btn-warning">Show Reasult</a>
                              @endif
                         @else
                         <a href="{{route('champEnroll',$exam->id)}}" class="btn btn-success">Enroll Now</a>

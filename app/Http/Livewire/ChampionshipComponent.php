@@ -3,6 +3,9 @@
 namespace App\Http\Livewire;
 
 use App\Models\Exam;
+use App\Models\Question;
+use App\Models\Quiz;
+use App\Models\QuizHeader;
 use Livewire\Component;
 
 class ChampionshipComponent extends Component

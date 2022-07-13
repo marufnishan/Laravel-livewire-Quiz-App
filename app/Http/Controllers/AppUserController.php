@@ -94,4 +94,38 @@ class AppUserController extends Controller
             )
         );
     }
+
+    public function Showreasult($examid , $usrid)
+    {
+        // Answers with alphabetical choice
+        $choice = collect(['A', 'B', 'C', 'D']);
+
+        //Get quiz summary record for the given quiz
+        $userQuizDetails = QuizHeader::where('exam_id', $examid)
+            ->where('user_id',$usrid)
+            ->with('section')->first();
+
+
+        //Extract question taken by the users stored as a serialized string while takeing the quiz
+        $quizQuestionsList = collect(unserialize($userQuizDetails->questions_taken));
+
+        //Get the actual quiz questiona and answers from Quiz table using quiz_header_id
+        $userQuiz = Quiz::where('quiz_header_id', $userQuizDetails->id)
+            ->orderBy('question_id', 'ASC')->get();
+
+        //Get the Questions and related answers taken by the user during the quiz
+        $quizQuestions = Question::whereIn('id', $quizQuestionsList)->orderBy('id', 'ASC')->with('answers')->get();
+
+        //pass the data using compact to the view to display
+        return view(
+            'appusers.userQuizDetail',
+            compact(
+                'userQuizDetails',
+                'quizQuestionsList',
+                'userQuiz',
+                'quizQuestions',
+                'choice'
+            )
+        );
+    }
 }
