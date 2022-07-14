@@ -136,6 +136,7 @@ class UserQuizlv extends Component
         ->where('attendance_status','Absent')
         ->first();
         $inrollstatus->attendance_status = 'Present';
+        $inrollstatus->exam_state = 'Participate';
         $inrollstatus->update();
 
         $this->validate();

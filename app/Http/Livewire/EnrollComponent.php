@@ -26,10 +26,15 @@ class EnrollComponent extends Component
 
         $inrollstatus = Enroll::Where('user_id',auth()->id())
         ->Where('exam_id',$this->exams->id)
-        ->where('attendance_status','Absent')
-        ->first();
-        if($inrollstatus){
-            $this->isDisabled = true;
+        ->get();
+
+        foreach($inrollstatus as $inrollstatuss){
+            if($inrollstatuss->attendance_status == 'Absent'){
+                $this->isDisabled = true;
+            }
+            elseif($inrollstatuss->attendance_status == 'Present'){
+                $this->isDisabled = true;
+            }
         }
 
     }

@@ -27,6 +27,18 @@
                                 <input name="section[description]" value="{{ old('section.description') }}" type="text" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" />
                             </label>
                             <label class="block">
+                                <span class="text-gray-700">Select Exam</span>
+                                @error('section.exam')
+                                <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
+                                @enderror
+                                <select name="section[exam]" value="{{ old('section.exam') }}" class="block w-full mt-1 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
+                                    <option value="">Select One Exam</option>
+                                    @foreach ($exams as $exam)
+                                    <option value="{{$exam->id}}">{{$exam->exam_title}}</option>
+                                    @endforeach
+                                </select>
+                            </label>
+                            <label class="block">
                                 <span class="text-gray-700">Lavel Question Size</span>
                                 @error('section.question_size')
                                 <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>

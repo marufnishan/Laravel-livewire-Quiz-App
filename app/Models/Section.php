@@ -14,6 +14,7 @@ class Section extends Model
         'is_active',
         'details',
         'question_size',
+        'exam_id',
     ];
 
     public function user()

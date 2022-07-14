@@ -8,9 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class Exam extends Model
 {
     use HasFactory;
-
-    public function enroll()
-    {
-        return $this->hasOne(Enroll::class);
-    }
 }

@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Exam;
 use App\Models\Section;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Redirect;
 
 class SectionsController extends Controller
 {
     public function createSection()
     {
-        return view('admins.create_section');
+        $exams = Exam::where('status','Active')->get();
+        return view('admins.create_section',['exams'=>$exams]);
     }
 
     public function listSection()
@@ -32,7 +32,8 @@ class SectionsController extends Controller
 
     public function editSection(Section $section)
     {
-        return view('admins.edit_section', compact('section'));
+        $exams = Exam::where('status','Active')->get();
+        return view('admins.edit_section', compact('section','exams'));
     }
 
     public function updateSection(Section $section, Request $request)
@@ -42,6 +43,7 @@ class SectionsController extends Controller
             'description' => 'required|min:5|max:255',
             'is_active' => 'required',
             'details' =>    'required|min:10|max:1024',
+            'exam_id' => 'required',
         ]);
         $record = Section::findOrFail($section->id);
         $input = $request->all();

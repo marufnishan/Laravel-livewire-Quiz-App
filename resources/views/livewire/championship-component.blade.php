@@ -17,18 +17,18 @@
                         <h5 class="card-title"><b> {{$exam->exam_title}}</b></h5>
                         <p class="card-text"><b>Exam Duration :</b> {{ $exam->duration}} Munites</p>
                         <p class="card-text"><b>Total Question :</b> {{ $exam->total_question}}</p>
-                        @if(!empty($exam->enroll->user_id))
-                            @if($exam->enroll->user_id == auth()->id() && $exam->enroll->attendance_status	== 'Absent')
-                            <a href="{{route('quizLavel',$exam->id)}}" class="btn btn-primary">Participate Now</a>
-                            @else
-                                @foreach($lavels as $lavel)
-                                    @if($lavel->exam_id == $exam->id &&  $lavel->user_id == auth()->id() )
-                                        <a href="{{route('userShowreasult',[$exam->id,auth()->id()])}}" type="button" class="btn btn-warning">Show Reasult</a>
-                                    @endif
-                                @endforeach
-                            @endif
+                        @if(!empty($enrolls))
+                            @foreach($enrolls as $enroll)
+                                @if( $exam->id == $enroll->exam_id && $enroll->user_id == auth()->id() && $enroll->exam_state == 'Created')
+                                    <a href="{{route('quizLavel',$exam->id)}}" class="btn btn-primary">Participate Now</a>
+                                @endif
+                                @if($enroll->exam_id == $exam->id && $enroll->user_id == auth()->id() && $enroll->exam_state == 'Participate')
+                                    <a href="{{route('userShowreasult',[$exam->id,auth()->id()])}}" type="button" class="btn btn-warning">Show Reasult</a>
+                                @endif
+                            @endforeach
+                                <a href="{{route('champEnroll',$exam->id)}}" class="btn btn-success">Enroll Now</a>
                         @else
-                        <a href="{{route('champEnroll',$exam->id)}}" class="btn btn-success">Enroll Now</a>
+                        <a href="{{route('champEnroll',$exam->id)}}" class="btn btn-danger">Enroll Now1</a>
                         @endif
                     </div>
                 </div>
