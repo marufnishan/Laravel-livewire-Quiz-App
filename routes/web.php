@@ -9,6 +9,9 @@ use App\Http\Controllers\QuestionsController;
 use App\Http\Livewire\ChampionshipComponent;
 use App\Http\Livewire\ChampionshipPractice;
 use App\Http\Livewire\EnrollComponent;
+use App\Http\Livewire\ExamComponent;
+use App\Http\Livewire\ExamEditComponent;
+use App\Http\Livewire\ExamListComponent;
 use App\Http\Livewire\LeaderBoardComponent;
 use App\Http\Livewire\UserQuizlv;
 
@@ -48,6 +51,22 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(fu
 
     Route::get('/globalQuizzes', [AdminController::class, 'globalQuizzes'])->name('globalQuizzes');
 
+    Route::get('/createExam',ExamComponent::class)
+        ->name('createExam');
+
+    Route::post('/storeExam', [ExamComponent::class, 'storeExam'])
+        ->name('storeExam');
+
+    Route::get('/examList',ExamListComponent::class)
+        ->name('examList');
+
+    Route::get('/editexam/{id}',ExamEditComponent::class)
+        ->name('editExam');
+
+    Route::post('/updateExam/{id}', [ExamEditComponent::class, 'updateExam'])
+        ->name('updateExam');
+
+
     Route::get('/createSection', [SectionsController::class, 'createSection'])
         ->name('createSection');
 
@@ -63,7 +82,7 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(fu
     Route::post('/updateSection/{section}', [SectionsController::class, 'updateSection'])
         ->name('updateSection');
 
-    Route::get('/listSection', [SectionsController::class, 'listSection'])
+    Route::get('/listLavel', [SectionsController::class, 'listSection'])
         ->name('listSection');
 
     Route::get('/detailSection/{section}', [SectionsController::class, 'detailSection'])

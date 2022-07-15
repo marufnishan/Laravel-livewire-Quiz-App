@@ -7,9 +7,9 @@
         </div>
     </x-slot>
     {{-- Exam Category Start --}}
-    <div class="container" style="background-color: #FFFFFF;">
+    <div class="container my-3" style="background-color: #FFFFFF;">
         <div class="row">
-            <div class="col-md-3 d-flex justify-content-around">
+            <div class="col-md-3 my-3 d-flex justify-content-around">
                 <div class="card" style="width: 18rem;">
                     <img src="assets/img/std.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -22,7 +22,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 d-flex justify-content-around">
+            <div class="col-md-3 my-3 d-flex justify-content-around">
                 <div class="card" style="width: 18rem;">
                     <img src="assets/img/std.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 d-flex justify-content-around">
+            <div class="col-md-3 my-3 d-flex justify-content-around">
                 <div class="card" style="width: 18rem;">
                     <img src="assets/img/std.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -48,7 +48,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 d-flex justify-content-around">
+            <div class="col-md-3 my-3 d-flex justify-content-around">
                 <div class="card" style="width: 18rem;">
                     <img src="assets/img/std.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -61,7 +61,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 d-flex justify-content-around">
+            <div class="col-md-3 my-3 d-flex justify-content-around">
                 <div class="card" style="width: 18rem;">
                     <img src="assets/img/std.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -74,7 +74,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 d-flex justify-content-around">
+            <div class="col-md-3 my-3 d-flex justify-content-around">
                 <div class="card" style="width: 18rem;">
                     <img src="assets/img/std.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -87,7 +87,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 d-flex justify-content-around">
+            <div class="col-md-3 my-3 d-flex justify-content-around">
                 <div class="card" style="width: 18rem;">
                     <img src="assets/img/std.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -100,7 +100,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 d-flex justify-content-around">
+            <div class="col-md-3 my-3 d-flex justify-content-around">
                 <div class="card" style="width: 18rem;">
                     <img src="assets/img/std.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -116,10 +116,4 @@
         </div>
     </div>
 {{-- Exam Category End --}}
-{{-- Footer Start --}}
-<div class="container-fluid py-5 "
-style="background-color: #FFFFFF;box-shadow: 2px rgba(0, 0, 0, 0.1);text-align: center;">
-<p>@Copyright Nishanbd 2022</p>
-</div>
-{{-- Footer End --}}
 </div>

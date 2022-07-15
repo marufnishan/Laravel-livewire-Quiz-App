@@ -7,7 +7,7 @@
         </div>
     </x-slot>
     {{-- Exam Category Start --}}
-    <div class="container" style="background-color: #FFFFFF;">
+    <div class="container my-3" style="background-color: #FFFFFF;">
         <div class="row">
             @foreach ($exams as $exam)
             <div class="col-md-3 d-flex justify-content-around my-3">
@@ -15,8 +15,8 @@
                     <img src="assets/img/std.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><b> {{$exam->exam_title}}</b></h5>
-                        <p class="card-text"><b>Exam Duration :</b> {{ $exam->duration}} Munites</p>
-                        <p class="card-text"><b>Total Question :</b> {{ $exam->total_question}}</p>
+                        <p class="text-sm"><b>Exam Duration :</b> {{ $exam->duration}} Munites</p>
+                        <p class="text-sm"><b>Total Question :</b> {{ $exam->lavel->where('exam_id',$exam->id)->sum('question_size')}}</p>
                         @if(!empty($enrolls))
                             @foreach($enrolls as $enroll)
                                 @if( $exam->id == $enroll->exam_id && $enroll->user_id == auth()->id() && $enroll->exam_state == 'Created')
@@ -37,10 +37,4 @@
         </div>
     </div>
 {{-- Exam Category End --}}
-{{-- Footer Start --}}
-<div class="container-fluid py-5 "
-style="background-color: #FFFFFF;box-shadow: 2px rgba(0, 0, 0, 0.1);text-align: center;">
-<p>@Copyright Nishanbd 2022</p>
-</div>
-{{-- Footer End --}}
 </div>

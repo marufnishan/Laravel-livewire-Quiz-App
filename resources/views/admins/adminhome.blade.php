@@ -8,6 +8,15 @@
         <div class="container px-5 py-5 mx-auto">
             <div class="flex flex-wrap -m-4 text-center ">
                 <div class="p-4 md:w-1/4 sm:w-1/2 w-full ">
+                    <a href="{{route('examList')}}">
+                        <div class="border-2 border-gray-200 px-4 py-6 rounded-lg bg-white hover:bg-green-100">
+                            <img class="mx-auto my-3" style="width: 48px;height: 34px" src="{{asset('assets/img/svg/exam.png')}}" alt="" >
+                            <h2 class="title-font font-medium text-xl text-gray-900">{{$examCount}}</h2>
+                            <p class="leading-relaxed">পরীক্ষা সংখ্যা</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="p-4 md:w-1/4 sm:w-1/2 w-full ">
                     <a href="{{route('listSection')}}">
                         <div class="border-2 border-gray-200 px-4 py-6 rounded-lg bg-white hover:bg-green-100">
                             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="text-indigo-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
@@ -15,19 +24,6 @@
                             </svg>
                             <h2 class="title-font font-medium text-xl text-gray-900">{{$sectionCount}}</h2>
                             <p class="leading-relaxed">লেভেল সংখ্যা</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
-                    <a href="{{route('usersIndex')}}">
-                        <div class="border-2 border-gray-200 px-4 py-6 rounded-lg bg-white hover:bg-green-100">
-                            <svg fill=" none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="text-indigo-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
-                                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"></path>
-                            </svg>
-                            <h2 class="title-font font-medium text-xl text-gray-900">{{$userCount}}</h2>
-                            <p class="leading-relaxed">ইউজার সংখ্যা</p>
                         </div>
                     </a>
                 </div>
@@ -48,6 +44,19 @@
                             </svg>
                             <h2 class="title-font font-medium text-xl text-gray-900">{{$quizCount}}</h2>
                             <p class="leading-relaxed">মোট পরীক্ষা সম্পন্ন</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                    <a href="{{route('usersIndex')}}">
+                        <div class="border-2 border-gray-200 px-4 py-6 rounded-lg bg-white hover:bg-green-100">
+                            <svg fill=" none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="text-indigo-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
+                                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"></path>
+                            </svg>
+                            <h2 class="title-font font-medium text-xl text-gray-900">{{$userCount}}</h2>
+                            <p class="leading-relaxed">ইউজার সংখ্যা</p>
                         </div>
                     </a>
                 </div>
@@ -74,12 +83,6 @@
             </div>
         </div>
     </section>
-    {{-- Footer Start --}}
-    <div class="container-fluid py-5 "
-    style="background-color: #FFFFFF;box-shadow: 2px rgba(0, 0, 0, 0.1);text-align: center;">
-    <p>@Copyright Nishanbd 2022</p>
-</div>
-{{-- Footer End --}}
     @push('js')
     <script>
         const GlobalQuizChart = new Chartisan({

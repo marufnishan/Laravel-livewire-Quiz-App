@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\Section;
 use App\Models\Question;
 use Illuminate\Http\Request;

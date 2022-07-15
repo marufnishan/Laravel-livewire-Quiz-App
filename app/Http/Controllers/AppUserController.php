@@ -107,8 +107,11 @@ class AppUserController extends Controller
 
 
         //Extract question taken by the users stored as a serialized string while takeing the quiz
+        if(!empty($userQuizDetails->questions_taken))
         $quizQuestionsList = collect(unserialize($userQuizDetails->questions_taken));
-
+        else{
+            return redirect()->back()->with('success', 'Opps.. You have Delete Your Reasult!');
+        }
         //Get the actual quiz questiona and answers from Quiz table using quiz_header_id
         $userQuiz = Quiz::where('quiz_header_id', $userQuizDetails->id)
             ->orderBy('question_id', 'ASC')->get();

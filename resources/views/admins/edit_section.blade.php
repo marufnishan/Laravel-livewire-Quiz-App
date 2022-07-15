@@ -1,13 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('edit Section') }}
+            {{ __('Edit Lavel') }}
         </h2>
     </x-slot>
     <div class="max-w-7xl m-4 mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <div class="mx-auto bg-gray-100">
-                <h2 class="text-2xl font-bold card bg-green-600 p-4 text-gray-100 rounded-t-lg mx-auto">New Section</h2>
+                <h2 class="text-2xl font-bold card bg-green-600 p-4 text-gray-100 rounded-t-lg mx-auto">Edit Lavel</h2>
                 <div class="mt-2 max-w-auto mx-auto card p-4 bg-white rounded-b-lg shadow-md">
                     <div class="grid grid-cols-1 gap-6">
                         <form action="{{route('updateSection', $section->id)}}" method="post">
