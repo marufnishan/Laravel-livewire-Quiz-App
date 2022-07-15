@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="md:flex justify-between">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('চ্যাম্পিয়নশিপ') }}
+                {{ __('সকল চাকরির প্রস্তুতি') }}
             </h2>
         </div>
     </x-slot>
@@ -28,7 +28,7 @@
                             @endforeach
                                 <a href="{{route('champEnroll',$exam->id)}}" class="btn btn-success">Enroll Now</a>
                         @else
-                        <a href="{{route('champEnroll',$exam->id)}}" class="btn btn-danger">Enroll Now1</a>
+                        <a href="{{route('champEnroll',$exam->id)}}" class="btn btn-danger">Enroll Now</a>
                         @endif
                     </div>
                 </div>
@@ -36,5 +36,5 @@
             @endforeach
         </div>
     </div>
-{{-- Exam Category End --}}
+    {{-- Exam Category End --}}
 </div>

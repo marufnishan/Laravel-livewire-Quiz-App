@@ -9,111 +9,21 @@
     {{-- Exam Category Start --}}
     <div class="container my-3" style="background-color: #FFFFFF;">
         <div class="row">
+            @foreach($exams as $exam)
             <div class="col-md-3 my-3 d-flex justify-content-around">
                 <div class="card" style="width: 18rem;">
-                    <img src="assets/img/std.jpg" class="card-img-top" alt="...">
+                    <img src="{{asset('assets/img/std.jpg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up
-                            the bulk
-                            of the card's content.</p>
+                        <h5 class="card-title">{{$exam->exam_title}}</h5>
+                        <p class="text-sm"><b>Total Question :</b>
+                            {{ $exam->lavel->where('exam_id',$exam->id)->sum('question_size')}}</p>
                         <a href="#" class="btn btn-success me-3">Practice</a>
                         <a href="#" class="btn btn-primary">Invite</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 my-3 d-flex justify-content-around">
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/img/std.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up
-                            the bulk
-                            of the card's content.</p>
-                        <a href="#" class="btn btn-success me-3">Practice</a>
-                        <a href="#" class="btn btn-primary">Invite</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 my-3 d-flex justify-content-around">
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/img/std.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up
-                            the bulk
-                            of the card's content.</p>
-                        <a href="#" class="btn btn-success me-3">Practice</a>
-                        <a href="#" class="btn btn-primary">Invite</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 my-3 d-flex justify-content-around">
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/img/std.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up
-                            the bulk
-                            of the card's content.</p>
-                        <a href="#" class="btn btn-success me-3">Practice</a>
-                        <a href="#" class="btn btn-primary">Invite</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 my-3 d-flex justify-content-around">
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/img/std.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up
-                            the bulk
-                            of the card's content.</p>
-                        <a href="#" class="btn btn-success me-3">Practice</a>
-                        <a href="#" class="btn btn-primary">Invite</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 my-3 d-flex justify-content-around">
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/img/std.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up
-                            the bulk
-                            of the card's content.</p>
-                        <a href="#" class="btn btn-success me-3">Practice</a>
-                        <a href="#" class="btn btn-primary">Invite</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 my-3 d-flex justify-content-around">
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/img/std.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up
-                            the bulk
-                            of the card's content.</p>
-                        <a href="#" class="btn btn-success me-3">Practice</a>
-                        <a href="#" class="btn btn-primary">Invite</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 my-3 d-flex justify-content-around">
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/img/std.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up
-                            the bulk
-                            of the card's content.</p>
-                        <a href="#" class="btn btn-success me-3">Practice</a>
-                        <a href="#" class="btn btn-primary">Invite</a>
-                    </div>
-                </div>
-            </div>
+        @endforeach
         </div>
     </div>
-{{-- Exam Category End --}}
+    {{-- Exam Category End --}}
 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Enroll;
 use App\Models\Exam;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class EnrollComponent extends Component
@@ -11,12 +12,18 @@ class EnrollComponent extends Component
     public $exams;
     public $isDisabled = false;
     public function enroll($id){
-        Enroll::create([
-            'user_id' => auth()->id(),
-            'exam_id' => $id,
-            'attendance_status' => 'Absent',
-        ]);
-        return $this->isDisabled = true;
+        if(Auth::user()){
+            Enroll::create([
+                'user_id' => auth()->id(),
+                'exam_id' => $id,
+                'attendance_status' => 'Absent',
+            ]);
+            return $this->isDisabled = true;
+        }
+        else{
+            return redirect()->route('login');
+        }
+        
     }
 
     public function mount($id){

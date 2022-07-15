@@ -11,6 +11,7 @@ class ChampionshipComponent extends Component
     public function render()
     {
         $exams = Exam::where('status', 'Active')
+            ->where('exam_type','Championship')
             ->get();
             $enrolls = Enroll::where('user_id',auth()->id())
             ->get();

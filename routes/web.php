@@ -12,6 +12,7 @@ use App\Http\Livewire\EnrollComponent;
 use App\Http\Livewire\ExamComponent;
 use App\Http\Livewire\ExamEditComponent;
 use App\Http\Livewire\ExamListComponent;
+use App\Http\Livewire\JobComponent;
 use App\Http\Livewire\LeaderBoardComponent;
 use App\Http\Livewire\UserQuizlv;
 
@@ -31,15 +32,12 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::get('/champpractice',ChampionshipPractice::class)->name('champPractice');
-Route::get('/championship',ChampionshipComponent::class)->name('Championship');
-Route::get('/jobpeparation',ChampionshipPractice::class)->name('jobPeparation');
 Route::get('/quizledarboard',LeaderBoardComponent::class)->name('QuizledarBoard');
-Route::post('/deleteQuiz/{id}', [LeaderBoardComponent::class, 'deleteQuiz'])
-        ->name('deleteQuiz');
+
+
+
 Route::get('/quizlavel/{id}', UserQuizlv::class)->name('quizLavel');
-Route::get('/champinroll/{id}', EnrollComponent::class)->name('champEnroll');
-Route::get('/userShowreasult/{examid}/{usrid}', [AppUserController::class, 'Showreasult'])
-        ->name('userShowreasult');
+
 
 Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(function () {
 
@@ -98,6 +96,10 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(fu
         ->name('storeQuestion');
     Route::post('/deleteQuestion/{id}', [QuestionsController::class, 'deleteQuestion'])
         ->name('deleteQuestion');
+
+    Route::post('/deleteQuiz/{id}', [LeaderBoardComponent::class, 'deleteQuiz'])
+        ->name('deleteQuiz');
+    
 });
 
 Route::middleware(['auth', 'verified', 'role:admin|user'])->prefix('appuser')->group(function () {
@@ -113,4 +115,12 @@ Route::middleware(['auth', 'verified', 'role:admin|user'])->prefix('appuser')->g
 
     Route::get('/startQuiz', [AppUserController::class, 'startQuiz'])
         ->name('startQuiz');
+    
+    //Championship
+    Route::get('/championship',ChampionshipComponent::class)->name('Championship');
+    Route::get('/champinroll/{id}', EnrollComponent::class)->name('champEnroll');
+    Route::get('/userShowreasult/{examid}/{usrid}', [AppUserController::class, 'Showreasult'])
+        ->name('userShowreasult');
+    //JOb
+    Route::get('/jobpeparation',JobComponent::class)->name('jobPeparation');
 });

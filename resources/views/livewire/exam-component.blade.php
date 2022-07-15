@@ -65,6 +65,18 @@
                                     <input name="exam_code" value="{{ old('exam_code') }}" type="text" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" />
                                 </label>
                                 <label class="block">
+                                    <span class="text-gray-700">Exam Type</span>
+                                    @error('exam_type')
+                                    <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
+                                    @enderror
+                                    <select name="exam_type" value="{{ old('section.exam_type') }}" class="block w-full mt-1 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
+                                        <option value="">Select One Exam</option>
+                                        <option value="Practice">Practice</option>
+                                        <option value="Championship">Championship</option>
+                                        <option value="Job">Job</option>
+                                    </select>
+                                </label>
+                                <label class="block">
                                     <span class="text-gray-700">Exam Status</span>
                                     @error('status')
                                     <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
