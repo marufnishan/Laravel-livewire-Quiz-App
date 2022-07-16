@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Question;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+
 class QuestionFactory extends Factory
 {
     /**
@@ -22,7 +23,8 @@ class QuestionFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'question' => $this->faker->regexify('[A-Za-z0-9]{20}'),
+            'explanation' => $this->faker->regexify('[A-Za-z0-9]{40}')
         ];
     }
 }

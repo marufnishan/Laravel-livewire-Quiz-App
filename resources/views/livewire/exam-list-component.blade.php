@@ -64,7 +64,7 @@
                                                 </div>
                                             </td>
                                             <td class="px-6 py-1">
-                                                <div class="text-sm text-gray-900">{{ $exam->exam_datetime}}</div>
+                                                <div class="text-sm text-gray-900">{{$exam->exam_datetime }}</div>
                                             </td>
                                             <td class="px-6 py-1">
                                                 <div class="text-sm text-gray-900">{{ $exam->duration }}</div>

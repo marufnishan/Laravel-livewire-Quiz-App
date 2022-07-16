@@ -22,7 +22,7 @@ class AnswerFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'answer' => $this->faker->regexify('[A-Za-z0-9]{20}'),
         ];
     }
 }

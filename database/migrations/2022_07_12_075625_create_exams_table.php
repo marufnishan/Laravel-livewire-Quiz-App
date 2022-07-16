@@ -18,7 +18,7 @@ class CreateExamsTable extends Migration
             $table->string('exam_title');
             $table->datetime('exam_datetime');
             $table->string('duration');
-            $table->bigInteger('total_question');
+            $table->string('total_question');
             $table->string('marks_per_right_answer');
             $table->string('exam_code')->nullable();
             $table->enum('status',['Active','Inactive']);
