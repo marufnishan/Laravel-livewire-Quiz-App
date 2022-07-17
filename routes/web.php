@@ -6,6 +6,8 @@ use App\Http\Controllers\AppUserController;
 use App\Http\Controllers\ManageUserController;
 use App\Http\Controllers\SectionsController;
 use App\Http\Controllers\QuestionsController;
+use App\Http\Livewire\AllTeacherComponent;
+use App\Http\Livewire\CatJobComponent;
 use App\Http\Livewire\ChampionshipComponent;
 use App\Http\Livewire\ChampionshipPractice;
 use App\Http\Livewire\EnrollComponent;
@@ -122,5 +124,7 @@ Route::middleware(['auth', 'verified', 'role:admin|user'])->prefix('appuser')->g
     Route::get('/userShowreasult/{examid}/{usrid}', [AppUserController::class, 'Showreasult'])
         ->name('userShowreasult');
     //JOb
-    Route::get('/jobpeparation',JobComponent::class)->name('jobPeparation');
+    Route::get('/jobpeparation/{id}',JobComponent::class)->name('jobPeparation');
+    Route::get('/cat_jobpeparation/{id}',CatJobComponent::class)->name('catJobPeparation');
+    Route::get('/allteacher',AllTeacherComponent::class)->name('allTeacher');
 });

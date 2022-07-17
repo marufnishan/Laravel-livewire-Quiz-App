@@ -33,19 +33,7 @@
                 <li class="nav-item">
                     <div class="dropdown"><a class="nav-link">চাকরির প্রস্তুতি
                         </a>
-                        <div class="dropdown-content">
-                            <a href="#">বাংলা ভাষা ও সাহিত্য</a>
-                            <a href="#">ইংরেজি ভাষা ও সাহিত্য</a>
-                            <a href="#">বাংলােদশ বিষয়াবলী</a>
-                            <a href="#">আন্তর্জাতিক বিষয়াবলী</a>
-                            <a href="#">ভূগোল ( বাংলাদেশ ও বিশ্ব ) পরিবেশ ও দুর্যোগ ব্যবস্থাপনা</a>
-                            <a href="#">সাধারণ বিজ্ঞান</a>
-                            <a href="#">কম্পিউটার ও তথ্য প্রযুক্তি</a>
-                            <a href="#">গাণিতিক যুক্তি</a>
-                            <a href="#">মানসিক দক্ষতা</a>
-                            <a href="#">নৈতিকতা মূল্যবোধ ও সুশাসন</a>
-                            <a href="{{ route('jobPeparation') }}">সমন্বিত</a>
-                        </div>
+                        @livewire('catecogy-component')
                     </div>
                 </li>
                 <li class="nav-item">
