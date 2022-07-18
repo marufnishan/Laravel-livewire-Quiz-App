@@ -15,6 +15,7 @@ use App\Http\Livewire\ExamComponent;
 use App\Http\Livewire\ExamEditComponent;
 use App\Http\Livewire\ExamListComponent;
 use App\Http\Livewire\JobComponent;
+use App\Http\Livewire\JobExamComponent;
 use App\Http\Livewire\LeaderBoardComponent;
 use App\Http\Livewire\UserQuizlv;
 
@@ -127,4 +128,5 @@ Route::middleware(['auth', 'verified', 'role:admin|user'])->prefix('appuser')->g
     Route::get('/jobpeparation/{id}',JobComponent::class)->name('jobPeparation');
     Route::get('/cat_jobpeparation/{id}',CatJobComponent::class)->name('catJobPeparation');
     Route::get('/allteacher',AllTeacherComponent::class)->name('allTeacher');
+    Route::get('/jobexams/{id}/{month}',JobExamComponent::class)->name('jobExams');
 });
