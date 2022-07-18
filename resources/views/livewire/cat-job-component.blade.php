@@ -11,7 +11,7 @@
         <div class="row">
             @foreach ($teachers as $teacher)
                 <div class="col-md-3 d-flex justify-content-around my-3">     
-            <a href="{{ route('jobPeparation',$teacher->id) }}">
+            <a href="{{ route('jobPeparation',['id'=>$teacher->id,'cat_id' => request()->route()->id]) }}">
                 <div class="card" style="width: 18rem;">
                     <img src="{{asset('assets/img/profile/teacher1.png')}}" class="card-img-top" alt="...">
                     <div class="card-body">

@@ -42,8 +42,8 @@
                         </a>
                         <div class="dropdown-content">
                             <a href="{{route('QuizledarBoard')}}">কুইজ</a>
-                            <a href="#">চাকরির প্রস্তুতি</a>
-                            <a href="#">চ্যাম্পিয়নশিপ</a>
+                            <a href="{{route('JobledarBoard')}}">চাকরির প্রস্তুতি</a>
+                            <a href="{{route('ChampledarBoard')}}">চ্যাম্পিয়নশিপ</a>
                         </div>
                     </div>
                 </li>

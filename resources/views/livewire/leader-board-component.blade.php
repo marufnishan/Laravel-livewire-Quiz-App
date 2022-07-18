@@ -105,6 +105,7 @@
                                     </thead>
                                     <tbody class="capitalize bg-white divide-y divide-gray-200">
                                         @foreach($userQuizzes as $quiz)
+                                        @if($quiz->exam->exam_type == 'Practice')
                                         <tr class="hover:bg-green-100">
                                             <td class="px-6 ">
                                                 <div class="flex items-center">
@@ -157,6 +158,7 @@
                                                 </form>
                                             </td>
                                         </tr>
+                                        @endif
                                         @endforeach
                                     </tbody>
                                 </table>
