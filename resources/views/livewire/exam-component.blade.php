@@ -16,56 +16,56 @@
                             <form action="{{route('storeExam')}}" method="post">
                                 @csrf
                                 <label class="block">
-                                    <span class="text-gray-700">Exam Thumbnail</span>
+                                    <span class="text-gray-700 my-3">Exam Thumbnail</span>
                                     @error('exam_thumbnail')
                                     <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
                                     @enderror
                                     <input cl name="exam_thumbnail" value="{{ old('exam_thumbnail') }}" type="file" class="mt-1 p-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" />
                                 </label>
                                 <label class="block">
-                                    <span class="text-gray-700">Exam Name</span>
+                                    <span class="text-gray-700 my-3">Exam Name</span>
                                     @error('exam_title')
                                     <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
                                     @enderror
                                     <input name="exam_title" value="{{ old('exam_title') }}" type="text" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" />
                                 </label>
                                 <label class="block">
-                                    <span class="text-gray-700">Exam Date-Time</span>
+                                    <span class="text-gray-700 my-3">Exam Date-Time</span>
                                     @error('exam_datetime')
                                     <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
                                     @enderror
                                     <input name="exam_datetime" value="{{ old('exam_datetime') }}" type="datetime-local" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" />
                                 </label>
                                 <label class="block">
-                                    <span class="text-gray-700">Exam Duration</span>
+                                    <span class="text-gray-700 my-3">Exam Duration</span>
                                     @error('duration')
                                     <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
                                     @enderror
                                     <input name="duration" value="{{ old('duration') }}" type="number" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" />
                                 </label>
                                 <label class="block">
-                                    <span class="text-gray-700">Total Question</span>
+                                    <span class="text-gray-700 my-3">Total Question</span>
                                     @error('total_question')
                                     <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
                                     @enderror
                                     <input name="total_question" value="{{ old('total_question') }}" type="number" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" />
                                 </label>
                                 <label class="block">
-                                    <span class="text-gray-700">Marks Per Question</span>
+                                    <span class="text-gray-700 my-3">Marks Per Question</span>
                                     @error('marks_per_right_answer')
                                     <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
                                     @enderror
                                     <input name="marks_per_right_answer" value="{{ old('marks_per_right_answer') }}" type="number" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" />
                                 </label>
                                 <label class="block">
-                                    <span class="text-gray-700">Exam Code</span>
+                                    <span class="text-gray-700 my-3">Exam Code</span>
                                     @error('exam_code')
                                     <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
                                     @enderror
                                     <input name="exam_code" value="{{ old('exam_code') }}" type="text" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" />
                                 </label>
                                 <label class="block">
-                                    <span class="text-gray-700">Exam Type</span>
+                                    <span class="text-gray-700 my-3">Exam Type</span>
                                     @error('exam_type')
                                     <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
                                     @enderror
@@ -77,7 +77,50 @@
                                     </select>
                                 </label>
                                 <label class="block">
-                                    <span class="text-gray-700">Exam Status</span>
+                                    <span class="text-gray-700 my-3">Job Category If Job Exam</span>
+                                    @error('cat_id')
+                                    <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
+                                    @enderror
+                                    <select name="cat_id" value="{{ old('section.cat_id') }}" class="block w-full mt-1 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
+                                        <option value="">Select Job Type</option>
+                                         @foreach ($categories as $categorie)
+                                        <option value="{{$categorie->id}}">{{$categorie->cat_name}}</option>
+                                        @endforeach
+                                    </select>
+                                </label>
+                                <label class="block">
+                                    <span class="text-gray-700 my-3">Exam Price</span>
+                                    @error('price')
+                                    <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
+                                    @enderror
+                                    <input name="price" value="{{ old('price') }}" type="text" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" />
+                                </label>
+                                <label class="block">
+                                    <span class="text-gray-700 my-3">Exam Subscription</span>
+                                    @error('subscription')
+                                    <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
+                                    @enderror
+                                    <select name="subscription" value="{{ old('section.subscription') }}" class="block w-full mt-1 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
+                                        <option value="">Select One Exam</option>
+                                        <option value="paid">Paid</option>
+                                        <option value="free">Free</option>
+                                        <option value="promotional">Promotional</option>
+                                    </select>
+                                </label>
+                                <label class="block">
+                                    <span class="text-gray-700 my-3">Teacher</span>
+                                    @error('teacher_id')
+                                    <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
+                                    @enderror
+                                    <select name="teacher_id" value="{{ old('section.teacher_id') }}" class="block w-full mt-1 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
+                                        <option value="">Select Teacher</option>
+                                         @foreach ($teachers as $teacher)
+                                        <option value="{{$teacher->id}}">{{$teacher->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </label>
+                                <label class="block">
+                                    <span class="text-gray-700 my-3">Exam Status</span>
                                     @error('status')
                                     <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
                                     @enderror

@@ -8,6 +8,15 @@
         <div class="container px-5 py-5 mx-auto">
             <div class="flex flex-wrap -m-4 text-center ">
                 <div class="p-4 md:w-1/4 sm:w-1/2 w-full ">
+                    <a href="{{route('teacherList')}}">
+                        <div class="border-2 border-gray-200 px-4 py-6 rounded-lg bg-white hover:bg-green-100">
+                            <img class="mx-auto my-3" style="width: 48px;height: 36px" src="{{asset('assets/img/svg/teacher.png')}}" alt="" >
+                            <h2 class="title-font font-medium text-xl text-gray-900">{{$teacherCount}}</h2>
+                            <p class="leading-relaxed">শিক্ষক সংখ্যা</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="p-4 md:w-1/4 sm:w-1/2 w-full ">
                     <a href="{{route('examList')}}">
                         <div class="border-2 border-gray-200 px-4 py-6 rounded-lg bg-white hover:bg-green-100">
                             <img class="mx-auto my-3" style="width: 48px;height: 34px" src="{{asset('assets/img/svg/exam.png')}}" alt="" >
@@ -24,6 +33,15 @@
                             </svg>
                             <h2 class="title-font font-medium text-xl text-gray-900">{{$sectionCount}}</h2>
                             <p class="leading-relaxed">লেভেল সংখ্যা</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="p-4 md:w-1/4 sm:w-1/2 w-full ">
+                    <a href="{{route('jobcatList')}}">
+                        <div class="border-2 border-gray-200 px-4 py-6 rounded-lg bg-white hover:bg-green-100">
+                            <img class="mx-auto my-3" style="width: 48px;height: 34px" src="{{asset('assets/img/svg/job.png')}}" alt="" >
+                            <h2 class="title-font font-medium text-xl text-gray-900">{{$categories}}</h2>
+                            <p class="leading-relaxed">চাকরির ধরন</p>
                         </div>
                     </a>
                 </div>

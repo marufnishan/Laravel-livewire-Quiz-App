@@ -11,6 +11,11 @@ class Teacher extends Model
     protected $fillable = [
         'name',
         'subject',
-        'image'
+        'image',
+        'cat_id'
     ];
+    public function category()
+    {
+        return $this->hasOne(Category::class,'id');
+    }
 }

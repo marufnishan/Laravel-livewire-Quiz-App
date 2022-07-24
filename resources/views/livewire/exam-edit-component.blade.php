@@ -54,6 +54,61 @@
                                 @enderror
                                 <input name="exam_code" value="{{old('exam_code', $exam->exam_code)}}" type="text" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" />
                             </label>
+
+                            <label class="block">
+                                <span class="text-gray-700">Exam Type</span>
+                                @error('exam_type')
+                                <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
+                                @enderror
+                                <select name="exam_type" value="{{old('exam_type', $exam->exam_type)}}" class="block w-full mt-1 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
+                                    <option value="Practice" {{ $exam->exam_type === 'Practice' ? 'selected' : '' }}>
+                                        Practice
+                                    </option>
+                                    <option value="Championship" {{ $exam->exam_type === 'Championship' ? 'selected' : '' }}>
+                                        Championship
+                                    </option>
+                                    <option value="Job" {{ $exam->exam_type === 'Job' ? 'selected' : '' }}>
+                                        Job
+                                    </option>
+                                </select>
+                            </label>
+                            <label class="block">
+                                <span class="text-gray-700">Exam Category</span>
+                                @error('cat_id')
+                                <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
+                                @enderror
+                                <select name="cat_id" value="{{old('cat_id', $exam->cat_id)}}" class="block w-full mt-1 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
+                                    @foreach($categories as $categories)
+                                    <option value="{{$categories->id}}" {{ $exam->cat_id == $categories->id ? 'selected' : '' }}>
+                                        {{$categories->cat_name}}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </label>
+                            <label class="block">
+                                <span class="text-gray-700">Exam Price</span>
+                                @error('price')
+                                <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
+                                @enderror
+                                <input name="price" value="{{old('price', $exam->price)}}" type="text" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" />
+                            </label>
+                            <label class="block">
+                                <span class="text-gray-700">Exam Subscription</span>
+                                @error('subscription')
+                                <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
+                                @enderror
+                                <select name="subscription" value="{{old('subscription', $exam->subscription)}}" class="block w-full mt-1 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
+                                    <option value="paid" {{ $exam->subscription === 'paid' ? 'selected' : '' }}>
+                                        Paid
+                                    </option>
+                                    <option value="free" {{ $exam->subscription === 'free' ? 'selected' : '' }}>
+                                        Free
+                                    </option>
+                                    <option value="promotional" {{ $exam->subscription === 'promotional' ? 'selected' : '' }}>
+                                        Promotional
+                                    </option>
+                                </select>
+                            </label>
                             <label class="block">
                                 <span class="text-gray-700">Is this Exam active?</span>
                                 @error('status')

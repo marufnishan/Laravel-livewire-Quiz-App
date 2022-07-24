@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Exam;
 use App\Models\User;
 use App\Models\Section;
 use App\Models\Question;
 use App\Models\QuizHeader;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -18,8 +20,11 @@ class AdminController extends Controller
         $quizCount = QuizHeader::count();
         $userCount = User::count();
         $examCount = Exam::count();
+        $teacherCount = Teacher::count();
+        $categories = Category::count();
         $latestUsers = User::latest()->take(5)->get();
-        return view('admins.adminhome', compact('latestUsers', 'sectionCount', 'questionCount', 'userCount', 'examCount', 'quizCount'));
+        return view('admins.adminhome', compact('latestUsers', 'sectionCount', 'questionCount', 'userCount', 'examCount', 'quizCount',
+        'teacherCount','categories'));
     }
 
     public function globalQuizzes()

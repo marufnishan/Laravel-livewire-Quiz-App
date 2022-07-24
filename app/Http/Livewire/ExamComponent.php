@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Category;
 use App\Models\Exam;
+use App\Models\Teacher;
 use Livewire\Component;
 use Illuminate\Http\Request;
 
@@ -19,7 +21,6 @@ class ExamComponent extends Component
             'exam_code' => 'required|unique:exams,exam_code',
             'status' => 'required'
         ]);
-
         Exam::create($request->all());
 
         return redirect()->back()->with('success', 'Exam Created');
@@ -27,6 +28,8 @@ class ExamComponent extends Component
     }
     public function render()
     {
-        return view('livewire.exam-component');
+        $categories = Category::get();
+        $teachers = Teacher::get();
+        return view('livewire.exam-component',['categories'=>$categories,'teachers'=>$teachers]);
     }
 }

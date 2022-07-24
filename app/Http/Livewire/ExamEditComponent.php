@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Category;
 use App\Models\Exam;
 use Illuminate\Http\Request;
 use Livewire\Component;
@@ -32,7 +33,7 @@ class ExamEditComponent extends Component
     }
     public function render()
     {
-        
-        return view('livewire.exam-edit-component',['exam'=>$this->exam]);
+        $categories = Category::get();
+        return view('livewire.exam-edit-component',['exam'=>$this->exam,'categories'=>$categories]);
     }
 }

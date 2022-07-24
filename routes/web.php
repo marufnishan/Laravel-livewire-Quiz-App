@@ -6,6 +6,7 @@ use App\Http\Controllers\AppUserController;
 use App\Http\Controllers\ManageUserController;
 use App\Http\Controllers\SectionsController;
 use App\Http\Controllers\QuestionsController;
+use App\Http\Livewire\AdminTeacherList;
 use App\Http\Livewire\AllTeacherComponent;
 use App\Http\Livewire\CatJobComponent;
 use App\Http\Livewire\ChampionshipComponent;
@@ -18,6 +19,7 @@ use App\Http\Livewire\ExamListComponent;
 use App\Http\Livewire\JobComponent;
 use App\Http\Livewire\JobExamComponent;
 use App\Http\Livewire\JobLeaderboardComponent;
+use App\Http\Livewire\JobPracticeCategoryList;
 use App\Http\Livewire\LeaderBoardComponent;
 use App\Http\Livewire\UserQuizlv;
 
@@ -38,8 +40,6 @@ Route::get('/', function () {
 
 Route::get('/champpractice',ChampionshipPractice::class)->name('champPractice');
 Route::get('/quizledarboard',LeaderBoardComponent::class)->name('QuizledarBoard');
-Route::get('/champledarboard',ChampionshipLeaderboardComponent::class)->name('ChampledarBoard');
-Route::get('/jonledarboard',JobLeaderboardComponent::class)->name('JobledarBoard');
 
 
 
@@ -61,6 +61,12 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(fu
 
     Route::post('/storeExam', [ExamComponent::class, 'storeExam'])
         ->name('storeExam');
+
+    Route::get('/teacherList',AdminTeacherList::class)
+        ->name('teacherList');
+
+    Route::get('/jobcatList',JobPracticeCategoryList::class)
+        ->name('jobcatList');
 
     Route::get('/examList',ExamListComponent::class)
         ->name('examList');
@@ -128,9 +134,11 @@ Route::middleware(['auth', 'verified', 'role:admin|user'])->prefix('appuser')->g
     Route::get('/champinroll/{id}', EnrollComponent::class)->name('champEnroll');
     Route::get('/userShowreasult/{examid}/{usrid}', [AppUserController::class, 'Showreasult'])
         ->name('userShowreasult');
+    Route::get('/champledarboard',ChampionshipLeaderboardComponent::class)->name('ChampledarBoard');
     //JOb
     Route::get('/jobpeparation/{id}/{cat_id}',JobComponent::class)->name('jobPeparation');
     Route::get('/cat_jobpeparation/{id}',CatJobComponent::class)->name('catJobPeparation');
     Route::get('/allteacher',AllTeacherComponent::class)->name('allTeacher');
-    Route::get('/jobexams/{id}/{month}/{cat_id}',JobExamComponent::class)->name('jobExams');
+    Route::get('/jobexams/{id}/{month}/{cat_id}',JobExamComponent::class)->name('jobExams');        
+    Route::get('/jonledarboard',JobLeaderboardComponent::class)->name('JobledarBoard');
 });

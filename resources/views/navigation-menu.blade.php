@@ -16,12 +16,12 @@
                 <a class="nav-link" href="{{ route('adminhome') }}" :active="request()->routeIs('adminhome')">এডমিন
                     ড্যাশবোর্ড</a>
                 @endhasrole
-                @hasrole('user|admin|superadmin')
+                {{-- @hasrole('user|admin|superadmin')
                 <a class="nav-link" href="{{ route('userQuizHome') }}"
                     :active="request()->routeIs('userQuizHome')">ইউজার কুইজ
                     ড্যাশবোর্ড
                 </a>
-                @endhasrole
+                @endhasrole --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('champPractice') }}"
                         :active="request()->routeIs('champPractice')">চ্যাম্পিয়নশিপ প্রস্তুতি</a>
@@ -42,8 +42,10 @@
                         </a>
                         <div class="dropdown-content">
                             <a href="{{route('QuizledarBoard')}}">কুইজ</a>
+                            @hasrole('user|admin|superadmin')
                             <a href="{{route('JobledarBoard')}}">চাকরির প্রস্তুতি</a>
                             <a href="{{route('ChampledarBoard')}}">চ্যাম্পিয়নশিপ</a>
+                            @endhasrole
                         </div>
                     </div>
                 </li>
