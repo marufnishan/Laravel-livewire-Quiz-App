@@ -7,6 +7,7 @@ use App\Http\Controllers\ManageUserController;
 use App\Http\Controllers\SectionsController;
 use App\Http\Controllers\QuestionsController;
 use App\Http\Livewire\AddJobCategoryComponent;
+use App\Http\Livewire\AddTeacherComponent;
 use App\Http\Livewire\AdminTeacherList;
 use App\Http\Livewire\AllTeacherComponent;
 use App\Http\Livewire\CatJobComponent;
@@ -62,9 +63,15 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(fu
 
     Route::post('/storeExam', [ExamComponent::class, 'storeExam'])
         ->name('storeExam');
-
+    //Teacher
     Route::get('/teacherList',AdminTeacherList::class)
         ->name('teacherList');
+
+    Route::get('/createTeacher',AddTeacherComponent::class)
+        ->name('createTeacher');
+
+    Route::post('/storeTeacher', [AddTeacherComponent::class, 'storeTeacher'])
+        ->name('storeTeacher');
 
     //Category
     Route::get('/jobcatList',JobPracticeCategoryList::class)
