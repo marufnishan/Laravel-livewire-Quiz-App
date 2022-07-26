@@ -130,13 +130,16 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(fu
     
 });
 
+Route::get('/userQuizDetails/{id}', [AppUserController::class, 'userQuizDetails'])
+        ->name('userQuizDetails');
+        
 Route::middleware(['auth', 'verified', 'role:admin|user'])->prefix('appuser')->group(function () {
 
     Route::get('/userQuizHome', [AppUserController::class, 'userQuizHome'])
         ->name('userQuizHome');
 
-    Route::get('/userQuizDetails/{id}', [AppUserController::class, 'userQuizDetails'])
-        ->name('userQuizDetails');
+    /* Route::get('/userQuizDetails/{id}', [AppUserController::class, 'userQuizDetails'])
+        ->name('userQuizDetails'); */
 
     Route::post('/deleteUserQuiz/{id}', [AppUserController::class, 'deleteUserQuiz'])
         ->name('deleteUserQuiz');

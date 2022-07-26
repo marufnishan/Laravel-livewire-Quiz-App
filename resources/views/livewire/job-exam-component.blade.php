@@ -28,7 +28,7 @@
                             @endforeach
                                 <a href="{{route('champEnroll',$exam->id)}}" class="btn btn-success">Enroll Now</a>
                         @else
-                        <a href="{{route('champEnroll',$exam->id)}}" class="btn btn-danger">Enroll Now1</a>
+                        <a href="{{route('champEnroll',$exam->id)}}" class="btn btn-danger">Enroll Now</a>
                         @endif
                     </div>
                 </div>

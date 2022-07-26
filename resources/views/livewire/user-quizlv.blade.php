@@ -7,7 +7,9 @@
         <div class="flex max-w-auto justify-between">
             <h1 class="text-sm leading-6 font-medium text-gray-900">
                 <span class="text-gray-400 font-extrabold p-1">User</span>
+                @if(Auth::user())
                 <span class="font-bold p-2 leading-loose bg-blue-500 text-white rounded-lg">{{Auth::user()->name}}</span>
+                @endif
             </h1>
             <p class="mt-1 max-w-2xl text-sm text-gray-500">
                 <span class="text-gray-400 font-extrabold p-1">Quiz Progress </span>
@@ -103,7 +105,9 @@
             <div class="container px-5 py-5 mx-auto">
                 <div class="text-center mb-5 justify-center">
                     <h1 class=" sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">Quiz Result</h1>
+                    @if(Auth::user())
                     <p class="text-md mt-10"> Dear <span class="font-extrabold text-blue-600 mr-2"> {{Auth::user()->name.'!'}} </span> You have secured <a class="bg-green-300 px-2 mx-2 hover:green-400 rounded-lg underline" href="{{route('userQuizDetails',$quizid) }}">Show quiz details</a></p>
+                    @endif
                     <progress class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto" id="quiz-{{$quizid}}" value="{{$quizPecentage}}" max="100"> {{$quizPecentage}} </progress> <span> {{$quizPecentage}}% </span>
                 </div>
                 <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">

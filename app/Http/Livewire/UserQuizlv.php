@@ -10,6 +10,7 @@ use App\Models\Section;
 use Livewire\Component;
 use App\Models\Question;
 use App\Models\QuizHeader;
+use Illuminate\Support\Facades\Auth;
 
 class UserQuizlv extends Component
 {
@@ -131,6 +132,7 @@ class UserQuizlv extends Component
         // Create a new quiz header in quiz_headers table and populate initial quiz information
         // Keep the instance in $this->quizid veriable for later updates to quiz.
         
+        if(Auth::user()){
         $inrollstatus = Enroll::Where('user_id',auth()->id())
         ->Where('exam_id',$this->examid)
         ->where('attendance_status','Absent')
@@ -138,7 +140,8 @@ class UserQuizlv extends Component
         $inrollstatus->attendance_status = 'Present';
         $inrollstatus->exam_state = 'Participate';
         $inrollstatus->update();
-
+        }
+        
         $this->validate();
         $this->quizid = QuizHeader::create([
             'user_id' => auth()->id(),

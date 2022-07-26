@@ -22,7 +22,8 @@ class JobComponent extends Component
     }
     public function render()
     {
-        
-        return view('livewire.job-component',['exams'=>$this->exams,'teacher'=>$this->teacher]);
+        $enrolls = Enroll::where('user_id',auth()->id())
+            ->get();
+        return view('livewire.job-component',['exams'=>$this->exams,'teacher'=>$this->teacher,'enrolls'=>$enrolls]);
     }
 }

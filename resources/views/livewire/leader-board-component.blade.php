@@ -11,7 +11,7 @@
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <div class="mx-auto">
                 <div class="flex justify-between items-center py-4">
-                    <a href="{{route('startQuiz')}}" class=" tracking-wide font-bold rounded border-2 border-blue-500 hover:border-blue-500 bg-blue-500 text-white hover:bg-blue-600 transition shadow-md py-1 px-6 items-center">Take a New Quiz</a>
+                    <a href="{{route('champPractice')}}" class=" tracking-wide font-bold rounded border-2 border-blue-500 hover:border-blue-500 bg-blue-500 text-white hover:bg-blue-600 transition shadow-md py-1 px-6 items-center">Take a New Quiz</a>
                     <p class="tracking-wide font-bold rounded @if(round($quizAverage,2)<70) bg-red-500 @endif  @if(round($quizAverage,2)>=70) bg-green-600 @endif text-white shadow-md py-2 px-6 items-center">Heighest Score: <span class="mx-2"> {{round($quizAverage,2) .'%'}}</span></p>
                 </div>
                 <section class="text-gray-600 body-font">
@@ -66,16 +66,7 @@
                     </div>
                 </section>
                 <!-- --------------------- START NEW TABLE --------------------->
-                {{-- @if($userQuizzes->isEmpty())
-                <div class="px-4 py-5 sm:px-6">
-                    <h1 class="text-sm leading-6 font-medium text-gray-900">
-                        No Quizzes found!
-                    </h1>
-                    <p class="mt-1 max-w-2xl text-sm text-gray-500">
-                        Looks like you have just landed! Once you have taken a quiz it will be listed here.
-                    </p>
-                </div>
-                @else --}}
+                
                 <div class=" flex flex-col">
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -83,9 +74,18 @@
                                 <table class="min-w-full divide-y divide-gray-200">
                                     <thead class="tracking-wide font-bold rounded border-2 bg-green-500 text-white  transition shadow-md py-2 px-6 items-center">
                                         <tr>
+                                            @if(Auth::user())
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
                                                 User Id
                                             </th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
+                                                User Name
+                                            </th>
+                                            @else
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
+                                                User Name
+                                            </th>
+                                            @endif
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
                                                 Quiz Size
                                             </th>
@@ -107,6 +107,7 @@
                                         @foreach($userQuizzes as $quiz)
                                         @if($quiz->exam->exam_type == 'Practice')
                                         <tr class="hover:bg-green-100">
+                                            @if(Auth::user())
                                             <td class="px-6 ">
                                                 <div class="flex items-center">
                                                     <div class="ml-4">
@@ -118,6 +119,30 @@
                                                     </div>
                                                 </div>
                                             </td>
+                                            <td class="px-6 ">
+                                                <div class="flex items-center">
+                                                    <div class="ml-4">
+                                                        <div class="text-sm font-medium text-gray-900">
+                                                            <a class="text-white px-6 font-extrabold py-1 rounded-lg bg-blue-500 hover:bg-blue-600 hover:underline" {{-- href="{{route('userQuizDetails', $quiz->id)}}" --}}>
+                                                                {{$quiz->user->name ?? 'Anonymous'}}
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            @else
+                                            <td class="px-6 ">
+                                                <div class="flex items-center">
+                                                    <div class="ml-4">
+                                                        <div class="text-sm font-medium text-gray-900">
+                                                            <a class="text-white px-6 font-extrabold py-1 rounded-lg bg-blue-500 hover:bg-blue-600 hover:underline" {{-- href="{{route('userQuizDetails', $quiz->id)}}" --}}>
+                                                                {{$quiz->user->name ?? 'Anonymous'}}
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            @endif
                                             <td class="px-6 ">
                                                 <div class="flex items-center">
                                                     <div class="ml-4">
