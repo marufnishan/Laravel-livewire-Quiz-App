@@ -13,7 +13,7 @@ use App\Models\QuizHeader;
 use Illuminate\Support\Facades\Auth;
 
 class UserQuizlv extends Component
-{
+{   public $exam;
     public $quote;
     public $quizid;
     public $examid;
@@ -90,6 +90,7 @@ class UserQuizlv extends Component
     public function mount($id)
     {
         $this->examid =$id;
+        $this->exam = Exam::find($id);
         $this->quote = Quote::inRandomOrder()->first();
     }
 
@@ -148,6 +149,7 @@ class UserQuizlv extends Component
             'quiz_size' => $this->quizSize,
             'section_id' => $this->sectionId,
             'exam_id' => $this->examid,
+            'exam_type' => $this->exam->exam_type,
         ]);
 
         $exam = Exam::find($this->examid);

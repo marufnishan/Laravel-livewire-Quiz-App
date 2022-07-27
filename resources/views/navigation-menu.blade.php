@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg" style="background-color: #FFFFFF;box-shadow: 0 2px rgba(0, 0, 0, 0.1);">
     <div class="container">
         <a href="/">
-            <img src="{{asset('assets/img/logo/logo.jpg')}}" alt="" style="height: 50px;width:80px;">
+            <img src="{{asset('assets/img/logo/logo.jpg')}}" alt="" style="height: 50px;width:100px;">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
