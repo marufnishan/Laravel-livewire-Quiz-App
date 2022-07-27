@@ -24,7 +24,7 @@
                                 @error('exam_datetime')
                                 <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
                                 @enderror
-                                <input name="exam_datetime" value="{{old('exam_datetime', $exam->exam_datetime)}}" type="text" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" />
+                                <input name="exam_datetime" value="{{old('exam_datetime', $exam->exam_datetime)}}" type="datetime-local" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" />
                             </label>
                             <label class="block">
                                 <span class="text-gray-700">Exam Duration</span>
@@ -107,6 +107,19 @@
                                     <option value="promotional" {{ $exam->subscription === 'promotional' ? 'selected' : '' }}>
                                         Promotional
                                     </option>
+                                </select>
+                            </label>
+                            <label class="block">
+                                <span class="text-gray-700">Teacher</span>
+                                @error('teacher_id')
+                                <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
+                                @enderror
+                                <select name="teacher_id" value="{{old('teacher_id', $exam->teacher_id)}}" class="block w-full mt-1 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
+                                    @foreach ($teachers as $teacher)
+                                    <option value="{{$teacher->id}}" {{ $exam->teacher_id === $teacher->id ? 'selected' : '' }}>
+                                        {{$teacher->name}}
+                                    </option>
+                                    @endforeach
                                 </select>
                             </label>
                             <label class="block">

@@ -99,7 +99,7 @@
                 </div>
                 @elseif(($userAnswer->answer_id === $answer->id) && ($answer->is_checked === '0'))
                 <div class="mt-1 max-w-auto text-sm px-2 rounded-lg text-white bg-red-600 font-extrabold ">
-                    <span class="mr-2 font-extrabold">{{$choice->values()->get($key)}} </span> {{$answer->answer}}
+                    <span class="mr-2 font-extrabold">{{$choice->values()->get($key)}} </span> {{$answer->answer}} <span class="p-1 font-extrabold">(Wrong Answer)</span>
                 </div>
                 @elseif($answer->is_checked && $userAnswer->is_correct === '0')
                 <div class="mt-1 max-w-auto text-sm px-2 rounded-lg text-white bg-green-500 font-extrabold ">
