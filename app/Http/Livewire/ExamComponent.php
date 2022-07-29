@@ -24,7 +24,7 @@ class ExamComponent extends Component
             'marks_per_right_answer' => 'required',
             'exam_code' => 'required|unique:exams,exam_code',
             'status' => 'required',
-            'exam_thumbnail' => 'required|mimes:jpeg,png',
+            'exam_thumbnail' => 'required|mimes:jpeg,png,jpg',
         ]);
 
      

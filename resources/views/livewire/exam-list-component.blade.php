@@ -36,6 +36,9 @@
                                                 Exam Name
                                             </th>
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
+                                                Exam Thumbnail
+                                            </th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
                                                 Exam Date
                                             </th>
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
@@ -62,6 +65,13 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </td>
+                                            <td class="px-6 py-1">
+                                                @if(!empty($exam->exam_thumbnail))
+                                                <img src="{{asset('storage/examthumbnail')}}/{{$exam->exam_thumbnail}}" width="100" alt="...">
+                                                @else
+                                                <img src="{{asset('assets/img/std.jpg')}}"  width="100" alt="...">
+                                                @endif
                                             </td>
                                             <td class="px-6 py-1">
                                                 <div class="text-sm text-gray-900">{{$exam->exam_datetime }}</div>

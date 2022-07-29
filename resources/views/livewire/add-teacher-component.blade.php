@@ -13,7 +13,7 @@
                         @if (Session::has('message'))
                         <div class="alert alert-info my-3">{{ Session::get('success') }}</div>
                         @endif
-                        <form action="{{route('storeTeacher')}}" method="post">
+                        <form action="{{route('storeTeacher')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <label class="block">
                                 <span class="text-gray-700 my-3">Teacher Name</span>
@@ -22,12 +22,15 @@
                                 @enderror
                                 <input name="name" value="{{ old('name') }}" type="text" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" />
                             </label>
-                            <label class="block">
-                                <span class="text-gray-700 my-3">Image</span>
+                            <label class="block my-3">
                                 @error('image')
                                 <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
                                 @enderror
-                                <input name="image" value="{{ old('image') }}" type="text" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" />
+                                <input name="image" value="{{ old('image') }}" type="file" class="form-control" wire:model="image" />
+                                @if($image)
+                                    <img class="my-3" src="{{$image->temporaryUrl()}}" width="200" height="200" />
+                                @endif
+                                
                             </label>
                             <label class="block">
                                 <span class="text-gray-700 my-3">Subject</span>
