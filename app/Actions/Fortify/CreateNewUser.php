@@ -31,11 +31,21 @@ class CreateNewUser implements CreatesNewUsers
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
         ])->validate();
 
+        /* if(request()->hasFile('image')) {
+            dd(request()->file('image'));
+            
+        } */
         $user = User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
         ]);
+
+        if(request()->hasFile('image')) {
+            $imageName = time() . '.' . request()->file('image')->getClientOriginalExtension();
+            request()->file('image')->storeAs('profile-photos',$imageName);
+            $user->update(['profile_photo_path' => 'profile-photos/'.$imageName]);
+        }
         $user->assignRole('user');
         //$user->notify(new NewUserCreatedNotification());
         return $user;

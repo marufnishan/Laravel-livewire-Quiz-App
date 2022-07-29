@@ -60,7 +60,7 @@
                     <dl>
                         <div class="bg-white sm:grid sm:grid-cols-4 sm:gap-4 sm:px-6">
                             <dd class=" mt-1 font-extrabold text-gray-900 sm:mt-0 sm:col-span-1">
-                                User Name
+                                User
                             </dd>
                             <dd class="mt-1 font-extrabold text-gray-900 sm:mt-0 sm:col-span-1">
                                 Email Address
@@ -75,8 +75,9 @@
                     <dl>
                         @foreach($users as $user)
                         <div class="bg-gray-50 px-4 py-1 sm:grid sm:grid-cols-4 sm:gap-4 sm:px-6 hover:bg-green-100 border-b-2 border-gray-200">
-                            <dt class=" text-sm font-medium text-gray-700">
-                                {{ $user->name}}
+                            <dt class=" text-sm font-medium text-gray-700 flex justify-start items-center">
+                                <img class="h-12 w-12 me-2 rounded-full object-cover" src="{{asset($user->profile_photo_url)}}"
+                                alt="{{ Auth::user()->name }}" /> {{ $user->name}}
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
                                 <p class="mt-1 max-w-2xl text-sm text-gray-700">

@@ -56,7 +56,7 @@
                     <div class="d-flex flex-column">
                         <div>
                             @if(!empty($leader->user->profile_photo_url))
-                            <img src="{{$leader->user->profile_photo_url }}"
+                            <img src="{{asset($leader->user->profile_photo_url) }}"
                             alt="{{$leader->user->name }}"
                                 style="width:100px;border-radius: 50%">
                             @else

@@ -92,9 +92,18 @@
                             <table class="min-w-full divide-y divide-gray-200">
                                 <thead class="tracking-wide font-bold rounded border-2 bg-green-500 text-white  transition shadow-md py-2 px-6 items-center">
                                     <tr>
+                                        @if(Auth::user())
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
                                             User Id
                                         </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
+                                            User Name
+                                        </th>
+                                        @else
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
+                                            User Name
+                                        </th>
+                                        @endif
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
                                             Quiz Size
                                         </th>
@@ -116,17 +125,42 @@
                                     @foreach($userQuizzes as $quiz)
                                     @if($quiz->exam->exam_type == 'Championship')
                                     <tr class="hover:bg-green-100">
-                                        <td class="px-6 ">
-                                            <div class="flex items-center">
-                                                <div class="ml-4">
-                                                    <div class="text-sm font-medium text-gray-900">
-                                                        <a class="text-white px-6 font-extrabold py-1 rounded-lg bg-blue-500 hover:bg-blue-600 hover:underline" {{-- href="{{route('userQuizDetails', $quiz->id)}}" --}}>
-                                                            {{ $quiz->user_id}}
-                                                        </a>
+                                        @if(Auth::user())
+                                            <td class="px-6 ">
+                                                <div class="flex items-center">
+                                                    <div class="ml-4">
+                                                        <div class="text-sm font-medium text-gray-900">
+                                                            <a class="text-white px-6 font-extrabold py-1 rounded-lg bg-blue-500 hover:bg-blue-600 hover:underline" {{-- href="{{route('userQuizDetails', $quiz->id)}}" --}}>
+                                                                {{ $quiz->user_id}}
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </td>
+                                            </td>
+                                            <td class="px-6 ">
+                                                <div class="flex items-center">
+                                                    <div class="ml-4">
+                                                        <div class="text-sm font-medium text-gray-900">
+                                                            <a class="text-white px-6 font-extrabold py-1 rounded-lg bg-blue-500 hover:bg-blue-600 hover:underline" {{-- href="{{route('userQuizDetails', $quiz->id)}}" --}}>
+                                                                {{$quiz->user->name ?? 'Anonymous'}}
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            @else
+                                            <td class="px-6 ">
+                                                <div class="flex items-center">
+                                                    <div class="ml-4">
+                                                        <div class="text-sm font-medium text-gray-900">
+                                                            <a class="text-white px-6 font-extrabold py-1 rounded-lg bg-blue-500 hover:bg-blue-600 hover:underline" {{-- href="{{route('userQuizDetails', $quiz->id)}}" --}}>
+                                                                {{$quiz->user->name ?? 'Anonymous'}}
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            @endif
                                         <td class="px-6 ">
                                             <div class="flex items-center">
                                                 <div class="ml-4">

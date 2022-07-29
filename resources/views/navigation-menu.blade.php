@@ -54,10 +54,10 @@
                 @if (Route::has('login'))
                 @auth
                 <div class="dropdown"><a class="nav-link">
-                        @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                        @if (Auth::user()->profile_photo_url)
                         <button
                             class="flex text-sm me-3 border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
-                            <img class="h-12 w-12 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}"
+                            <img class="h-12 w-12 rounded-full object-cover" src="{{asset(Auth::user()->profile_photo_url)}}"
                                 alt="{{ Auth::user()->name }}" />
                         </button>
                         @else
@@ -77,7 +77,7 @@
                         @endif
                     </a>
                     <div class="dropdown-content">
-                        <a href="{{ route('profile.show') }}">Profile</a>
+                        {{-- <a href="{{ route('profile.show') }}">Profile</a> --}}
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <a href="{{ route('logout') }}" onclick="event.preventDefault();
