@@ -8,6 +8,7 @@ use App\Http\Controllers\SectionsController;
 use App\Http\Controllers\QuestionsController;
 use App\Http\Livewire\AddJobCategoryComponent;
 use App\Http\Livewire\AddTeacherComponent;
+use App\Http\Livewire\AdminQuestionListComponent;
 use App\Http\Livewire\AdminTeacherList;
 use App\Http\Livewire\AllTeacherComponent;
 use App\Http\Livewire\CatJobComponent;
@@ -83,6 +84,7 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(fu
     Route::post('/storeJobCategory', [AddJobCategoryComponent::class, 'storeCategory'])
         ->name('storeJobCategory');
 
+    //Exam
     Route::get('/examList',ExamListComponent::class)
         ->name('examList');
 
@@ -92,7 +94,17 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(fu
     Route::post('/updateExam/{id}', [ExamEditComponent::class, 'updateExam'])
         ->name('updateExam');
 
+    //Question
+    Route::get('/createQuestion/{section}', [QuestionsController::class, 'createQuestion'])
+        ->name('createQuestion');
 
+    Route::get('/allquestion',AdminQuestionListComponent::class)
+        ->name('allquestion');
+
+    Route::get('/detailQuestion/{question}', [QuestionsController::class, 'detailQuestion'])
+        ->name('detailQuestion');
+
+    //Lavel
     Route::get('/createSection', [SectionsController::class, 'createSection'])
         ->name('createSection');
 
@@ -113,12 +125,6 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(fu
 
     Route::get('/detailSection/{section}', [SectionsController::class, 'detailSection'])
         ->name('detailSection');
-
-    Route::get('/createQuestion/{section}', [QuestionsController::class, 'createQuestion'])
-        ->name('createQuestion');
-
-    Route::get('/detailQuestion/{question}', [QuestionsController::class, 'detailQuestion'])
-        ->name('detailQuestion');
 
     Route::post('/storeQuestion/{section}', [QuestionsController::class, 'storeQuestion'])
         ->name('storeQuestion');
