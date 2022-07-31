@@ -18,13 +18,13 @@ class LeaderBoardComponent extends Component
     }
     public function render()
     {
-        $quizAverage = QuizHeader::max('score');
+        $quizAverage = QuizHeader::where('exam_type','Practice')->max('score');
         $sectionCount = Section::count();
         $userCount = User::count();
         $questionCount = Question::count();
-        $quizCount = QuizHeader::count();
+        $quizCount = QuizHeader::where('exam_type','Practice')->count();
 
-        $userQuizzes = QuizHeader::orderBy('score', 'DESC')
+        $userQuizzes = QuizHeader::where('exam_type','Practice')->orderBy('score', 'DESC')
             ->orderBy('quiz_size', 'DESC')
             ->paginate(10);
         return view('livewire.leader-board-component',['quizAverage'=>$quizAverage,'sectionCount'=>$sectionCount,'userCount'=>$userCount,'questionCount'=>$questionCount,'quizCount'=>$quizCount,'userQuizzes'=>$userQuizzes]);

@@ -11,8 +11,12 @@
     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
         <div class="mx-auto">
             <div class="flex justify-between items-center py-4">
-                <a href="{{route('allTeacher')}}" class=" tracking-wide font-bold rounded border-2 border-blue-500 hover:border-blue-500 bg-blue-500 text-white hover:bg-blue-600 transition shadow-md py-1 px-6 items-center">Take a New Quiz</a>
-                <p class="tracking-wide font-bold rounded @if(round($quizAverage,2)<70) bg-red-500 @endif  @if(round($quizAverage,2)>=70) bg-green-600 @endif text-white shadow-md py-2 px-6 items-center">Heighest Score: <span class="mx-2"> {{round($quizAverage,2) .'%'}}</span></p>
+                <a href="{{route('allTeacher')}}"><button class="btn btn-info text-light me-2">Take a New Quiz</button></a>
+                @if(round($quizAverage,2)<70)
+                <button class="btn btn-danger ms-2">Heighest Score: {{round($quizAverage,2) .'%'}}</button>
+                @else
+                <button class="btn btn-success ms-2">Heighest Score: {{round($quizAverage,2) .'%'}}</button>
+                @endif
             </div>
             <section class="text-gray-600 body-font">
                 <div class="container px-5 py-5 mx-auto">
@@ -65,17 +69,6 @@
                     </div>
                 </div>
             </section>
-            <!-- --------------------- START NEW TABLE --------------------->
-            {{-- @if($userQuizzes->isEmpty())
-            <div class="px-4 py-5 sm:px-6">
-                <h1 class="text-sm leading-6 font-medium text-gray-900">
-                    No Quizzes found!
-                </h1>
-                <p class="mt-1 max-w-2xl text-sm text-gray-500">
-                    Looks like you have just landed! Once you have taken a quiz it will be listed here.
-                </p>
-            </div>
-            @else --}}
             <div class=" flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">

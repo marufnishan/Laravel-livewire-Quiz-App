@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="md:flex justify-between">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('User Quiz Home') }}
+                {{ __('কুইজ হোম') }}
             </h2>
         </div>
     </x-slot>
@@ -11,19 +11,32 @@
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <div class="mx-auto">
                 <div class="flex justify-between items-center py-4">
-                    <a href="{{route('startQuiz')}}" class=" tracking-wide font-bold rounded border-2 border-blue-500 hover:border-blue-500 bg-blue-500 text-white hover:bg-blue-600 transition shadow-md py-1 px-6 items-center">Take a New Quiz</a>
-                    <p class="tracking-wide font-bold rounded @if(round($quizAverage,2)<70) bg-red-500 @endif  @if(round($quizAverage,2)>=70) bg-green-600 @endif text-white shadow-md py-2 px-6 items-center">Average Score: <span class="mx-2"> {{round($quizAverage,2) .'%'}}</span></p>
+                    <a href="{{route('Championship')}}"><button class="btn btn-info text-light me-2">Take a New Quiz</button></a>
+                @if(round($quizAverage,2)<70)
+                <button class="btn btn-danger ms-2">Average Score: {{round($quizAverage,2) .'%'}}</button>
+                @else
+                <button class="btn btn-success ms-2">Average Score: {{round($quizAverage,2) .'%'}}</button>
+                @endif
                 </div>
                 <section class="text-gray-600 body-font">
                     <div class="container px-5 py-5 mx-auto">
                         <div class="flex flex-wrap -m-4 text-center">
+                             <div class="p-4 md:w-1/4 sm:w-1/2 w-full ">
+                            <div class="border-2 border-gray-200 px-4 py-6 rounded-lg bg-white">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="text-indigo-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
+                                    <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"></path>
+                                </svg>
+                                <h2 class="title-font font-medium text-xl text-gray-900">{{$questionsCount}}</h2>
+                                <p class="leading-relaxed">প্রশ্ন সংখ্যা</p>
+                            </div>
+                        </div>
                             <div class="p-4 md:w-1/4 sm:w-1/2 w-full ">
                                 <div class="border-2 border-gray-200 px-4 py-6 rounded-lg bg-white">
                                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="text-indigo-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
                                         <path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
                                     </svg>
                                     <h2 class="title-font font-medium text-xl text-gray-900">{{$sections->count()}}</h2>
-                                    <p class="leading-relaxed">Total Lavel</p>
+                                    <p class="leading-relaxed">লেভেল সংখ্যা</p>
                                 </div>
                             </div>
                             <div class="p-4 md:w-1/4 sm:w-1/2 w-full ">
@@ -34,16 +47,7 @@
                                         <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"></path>
                                     </svg>
                                     <h2 class="title-font font-medium text-xl text-gray-900">{{$activeUsers}}</h2>
-                                    <p class="leading-relaxed">Total Students</p>
-                                </div>
-                            </div>
-                            <div class="p-4 md:w-1/4 sm:w-1/2 w-full ">
-                                <div class="border-2 border-gray-200 px-4 py-6 rounded-lg bg-white">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="text-indigo-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
-                                        <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"></path>
-                                    </svg>
-                                    <h2 class="title-font font-medium text-xl text-gray-900">{{$questionsCount}}</h2>
-                                    <p class="leading-relaxed">Total Questions</p>
+                                    <p class="leading-relaxed">ইউজার সংখ্যা</p>
                                 </div>
                             </div>
                             <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
@@ -52,7 +56,7 @@
                                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
                                     </svg>
                                     <h2 class="title-font font-medium text-xl text-gray-900">{{$quizesTaken}}</h2>
-                                    <p class="leading-relaxed">Quizzes Taken</p>
+                                    <p class="leading-relaxed">মোট পরীক্ষা সম্পন্ন</p>
                                 </div>
                             </div>
                         </div>
@@ -83,6 +87,18 @@
                                 <table class="min-w-full divide-y divide-gray-200">
                                     <thead class="tracking-wide font-bold rounded border-2 bg-green-500 text-white  transition shadow-md py-2 px-6 items-center">
                                         <tr>
+                                            @if(Auth::user())
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
+                                                User Id
+                                            </th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
+                                                User Name
+                                            </th>
+                                            @else
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
+                                                User Name
+                                            </th>
+                                            @endif
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
                                                 Quiz Size
                                             </th>
@@ -103,6 +119,42 @@
                                     <tbody class="capitalize bg-white divide-y divide-gray-200">
                                         @foreach($userQuizzes as $quiz)
                                         <tr class="hover:bg-green-100">
+                                            @if(Auth::user())
+                                            <td class="px-6 ">
+                                                <div class="flex items-center">
+                                                    <div class="ml-4">
+                                                        <div class="text-sm font-medium text-gray-900">
+                                                            <a class="text-white px-6 font-extrabold py-1 rounded-lg bg-blue-500 hover:bg-blue-600 hover:underline" {{-- href="{{route('userQuizDetails', $quiz->id)}}" --}}>
+                                                                {{ $quiz->user_id}}
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 ">
+                                                <div class="flex items-center">
+                                                    <div class="ml-4">
+                                                        <div class="text-sm font-medium text-gray-900">
+                                                            <a class="text-white px-6 font-extrabold py-1 rounded-lg bg-blue-500 hover:bg-blue-600 hover:underline" {{-- href="{{route('userQuizDetails', $quiz->id)}}" --}}>
+                                                                {{$quiz->user->name ?? 'Anonymous'}}
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            @else
+                                            <td class="px-6 ">
+                                                <div class="flex items-center">
+                                                    <div class="ml-4">
+                                                        <div class="text-sm font-medium text-gray-900">
+                                                            <a class="text-white px-6 font-extrabold py-1 rounded-lg bg-blue-500 hover:bg-blue-600 hover:underline" {{-- href="{{route('userQuizDetails', $quiz->id)}}" --}}>
+                                                                {{$quiz->user->name ?? 'Anonymous'}}
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            @endif
                                             <td class="px-6 ">
                                                 <div class="flex items-center">
                                                     <div class="ml-4">

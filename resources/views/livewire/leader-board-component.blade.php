@@ -10,9 +10,13 @@
     <div class="max-w-7xl m-4 mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <div class="mx-auto">
-                <div class="flex justify-between items-center py-4">
-                    <a href="{{route('champPractice')}}" class=" tracking-wide font-bold rounded border-2 border-blue-500 hover:border-blue-500 bg-blue-500 text-white hover:bg-blue-600 transition shadow-md py-1 px-6 items-center">Take a New Quiz</a>
-                    <p class="tracking-wide font-bold rounded @if(round($quizAverage,2)<70) bg-red-500 @endif  @if(round($quizAverage,2)>=70) bg-green-600 @endif text-white shadow-md py-2 px-6 items-center">Heighest Score: <span class="mx-2"> {{round($quizAverage,2) .'%'}}</span></p>
+                <div class="flex justify-between my-4">
+                    <a href="{{route('Championship')}}"><button class="btn btn-info text-light me-2">Take a New Quiz</button></a>
+                @if(round($quizAverage,2)<70)
+                <button class="btn btn-danger ms-2">Heighest Score: {{round($quizAverage,2) .'%'}}</button>
+                @else
+                <button class="btn btn-success ms-2">Heighest Score: {{round($quizAverage,2) .'%'}}</button>
+                @endif
                 </div>
                 <section class="text-gray-600 body-font">
                     <div class="container px-5 py-5 mx-auto">
@@ -52,7 +56,7 @@
                                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
                                     </svg>
                                     <h2 class="title-font font-medium text-xl text-gray-900">{{$quizCount}}</h2>
-                                    <p class="leading-relaxed">মোট পরীক্ষা সম্পন্ন</p>
+                                    <p class="leading-relaxed">পরীক্ষা সম্পন্ন</p>
                                 </div>
                             </div>
                         </div>

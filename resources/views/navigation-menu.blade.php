@@ -41,10 +41,11 @@
                     <div class="dropdown"><a class="nav-link">লিডারবোর্ড
                         </a>
                         <div class="dropdown-content">
-                            <a href="{{route('QuizledarBoard')}}">কুইজ</a>
+                            <a href="{{route('QuizledarBoard')}}">চ্যাম্পিয়নশিপ প্রস্তুতি</a>
                             @hasrole('user|admin|superadmin')
-                            <a href="{{route('JobledarBoard')}}">চাকরির প্রস্তুতি</a>
                             <a href="{{route('ChampledarBoard')}}">চ্যাম্পিয়নশিপ</a>
+                            <a href="{{route('JobledarBoard')}}">চাকরির প্রস্তুতি</a>
+                            <a href="{{route('userQuizHome')}}">কুইজ হোম</a>
                             @endhasrole
                         </div>
                     </div>

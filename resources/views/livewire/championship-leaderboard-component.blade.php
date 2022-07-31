@@ -10,9 +10,13 @@
 <div class="max-w-7xl m-4 mx-auto sm:px-6 lg:px-8">
     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
         <div class="mx-auto">
-            <div class="flex justify-between items-center py-4">
-                <a href="{{route('Championship')}}" class=" tracking-wide font-bold rounded border-2 border-blue-500 hover:border-blue-500 bg-blue-500 text-white hover:bg-blue-600 transition shadow-md py-1 px-6 items-center">Take a New Quiz</a>
-                <p class="tracking-wide font-bold rounded @if(round($quizAverage,2)<70) bg-red-500 @endif  @if(round($quizAverage,2)>=70) bg-green-600 @endif text-white shadow-md py-2 px-6 items-center">Heighest Score: <span class="mx-2"> {{round($quizAverage,2) .'%'}}</span></p>
+            <div class="flex justify-between my-4">
+                <a href="{{route('Championship')}}"><button class="btn btn-info text-light me-2">Take a New Quiz</button></a>
+                @if(round($quizAverage,2)<70)
+                <button class="btn btn-danger ms-2">Heighest Score: {{round($quizAverage,2) .'%'}}</button>
+                @else
+                <button class="btn btn-success ms-2">Heighest Score: {{round($quizAverage,2) .'%'}}</button>
+                @endif
             </div>
             <section class="text-gray-600 body-font">
                 <div class="container px-5 py-5 mx-auto">
