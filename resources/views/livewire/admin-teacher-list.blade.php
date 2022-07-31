@@ -65,7 +65,7 @@
                                             </td>
                                             <td class="px-6 py-1">
                                                 @if($teacher->image)
-                                                <img class="my-3" src="{{asset('storage/teacherprofile')}}/{{$teacher->image }}" width="40" height="200" />
+                                                <img class="my-3" src="{{asset('assets/img/teacherprofile')}}/{{$teacher->image }}" width="40" height="200" />
                                                 @else
                                                 <img class="my-3" src="{{asset('assets/img/profile/teacher1.png')}}" width="40" height="200" />
                                                 @endif

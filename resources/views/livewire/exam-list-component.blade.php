@@ -68,7 +68,7 @@
                                             </td>
                                             <td class="px-6 py-1">
                                                 @if(!empty($exam->exam_thumbnail))
-                                                <img src="{{asset('storage/examthumbnail')}}/{{$exam->exam_thumbnail}}" width="100" alt="...">
+                                                <img src="{{asset('assets/img/examthumbnail')}}/{{$exam->exam_thumbnail}}" width="100" alt="...">
                                                 @else
                                                 <img src="{{asset('assets/img/std.jpg')}}"  width="100" alt="...">
                                                 @endif

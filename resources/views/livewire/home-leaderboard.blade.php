@@ -9,12 +9,12 @@
                 <div class="col-md-4 d-flex justify-content-center">
                     <div class="d-flex flex-column">
                         <div>
-                            @if(!empty($leader->user->profile_photo_url))
-                            <img src="{{$leader->user->profile_photo_url }}"
+                            @if(!empty($leader->user->profile_photo_path))
+                            <img src="{{asset('assets/img/'.$leader->user->profile_photo_path )}}"
                             alt="{{$leader->user->name }}"
                                 style="width:100px;border-radius: 50%">
                             @else
-                            <img src="{{asset('assets/img/profile/anonimus.jpg')}}" alt="anonimus.jpg"
+                            <img src="{{$leader->user->profile_photo_url}}" alt="{{ $leader->user->name }}"
                             style="width:100px;border-radius: 50%">
                             @endif
                         </div>
@@ -24,26 +24,6 @@
                     </div>
                 </div>
                 @endforeach
-                {{-- <div class="col-md-4 d-flex justify-content-center">
-                    <div class="d-flex flex-column">
-                        <div><img src="assets/img/profile/profile2.png" alt="Avatar"
-                                style="width:100px;border-radius: 50%">
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <p>Ms.salma</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 d-flex justify-content-center">
-                    <div class="d-flex flex-column">
-                        <div><img src="assets/img/profile/profile4.png" alt="Avatar"
-                                style="width:100px;border-radius: 50%">
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <p>Mr.Sabbir</p>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
         <div class="col-md-6 py-3">
@@ -55,12 +35,12 @@
                 <div class="col-md-4 d-flex justify-content-center">
                     <div class="d-flex flex-column">
                         <div>
-                            @if(!empty($leader->user->profile_photo_url))
-                            <img src="{{asset($leader->user->profile_photo_url) }}"
+                            @if(!empty($leader->user->profile_photo_path))
+                            <img src="{{asset('assets/img/'.$leader->user->profile_photo_path )}}"
                             alt="{{$leader->user->name }}"
                                 style="width:100px;border-radius: 50%">
                             @else
-                            <img src="{{asset('assets/img/profile/anonimus.jpg')}}" alt="anonimus.jpg"
+                            <img src="{{$leader->user->profile_photo_url}}" alt="{{ $leader->user->name }}"
                             style="width:100px;border-radius: 50%">
                             @endif
                         </div>

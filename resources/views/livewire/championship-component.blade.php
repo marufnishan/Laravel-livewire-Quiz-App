@@ -13,7 +13,7 @@
             <div class="col-md-3 d-flex justify-content-around my-3">
                 <div class="card" style="width: 18rem;">
                     @if(!empty($exam->exam_thumbnail))
-                    <img src="{{asset('storage/examthumbnail')}}/{{$exam->exam_thumbnail}}" class="card-img-top" alt="...">
+                    <img src="{{asset('assets/img/examthumbnail')}}/{{$exam->exam_thumbnail}}" class="card-img-top" alt="...">
                     @else
                     <img src="{{asset('assets/img/std.jpg')}}" class="card-img-top" alt="...">
                     @endif
