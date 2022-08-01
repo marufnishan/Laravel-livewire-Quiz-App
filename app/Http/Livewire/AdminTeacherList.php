@@ -7,6 +7,16 @@ use Livewire\Component;
 
 class AdminTeacherList extends Component
 {
+    public function delete($id)
+    {
+        $teacher = Teacher::find($id);
+        if($teacher->image)
+        {
+            unlink('assets/img/teacherprofile'.'/'.$teacher->image);
+        }
+        $teacher->delete();
+        session()->flash('message','Teacher has been deleted successfully');
+    }
     public function render()
     {
         $teachers = Teacher::paginate(10);
