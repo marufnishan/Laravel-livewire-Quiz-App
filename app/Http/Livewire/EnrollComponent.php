@@ -18,7 +18,8 @@ class EnrollComponent extends Component
                 'exam_id' => $id,
                 'attendance_status' => 'Absent',
             ]);
-            return $this->isDisabled = true;
+            $this->isDisabled = true;
+            return redirect()->back();
         }
         else{
             return redirect()->route('login');

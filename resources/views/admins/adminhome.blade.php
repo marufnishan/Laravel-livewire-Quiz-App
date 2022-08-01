@@ -80,6 +80,15 @@
                         </div>
                     </a>
                 </div>
+                <div class="p-4 md:w-1/4 sm:w-1/2 w-full ">
+                    <a href="{{route('jobcatList')}}">
+                        <div class="border-2 border-gray-200 px-4 py-6 rounded-lg bg-white hover:bg-green-100">
+                            <img class="mx-auto my-3" style="width: 48px;height: 34px" src="{{asset('assets/img/svg/slider.png')}}" alt="" >
+                            <h2 class="title-font font-medium text-xl text-gray-900">{{$categories}}</h2>
+                            <p class="leading-relaxed">হোম স্লাইডার</p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
