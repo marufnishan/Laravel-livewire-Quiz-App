@@ -12,6 +12,10 @@ class ExamListComponent extends Component
 
     public function delete($id){
         $exam = Exam::findOrFail($id);
+        if($exam->exam_thumbnail)
+        {
+            unlink('assets/img/examthumbnail'.'/'.$exam->exam_thumbnail);
+        }
         $exam->delete();
         return redirect()->back()->withSuccess('Exam with id: ' . $exam->id . ' deleted successfully');
     }
