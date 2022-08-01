@@ -20,18 +20,18 @@
                 </div>
                 <div class="col-md-6 my-auto">
                     <h1>Exam Shedule</h1>
-                    <a href="{{ route("jobExams",['id'=>$teacher->id,'month'=>1,'cat_id' => request()->route()->cat_id])}}"><button class="btn btn-info my-3" <?php $month = date('m');  if($month <= 1) echo "disabled='disabled'" ?> >January {{date("Y")}}</button></a>
-                    <a href="{{ route("jobExams",['id'=>$teacher->id,'month'=>2,'cat_id' => request()->route()->cat_id])}}"><button class="btn btn-info my-3" <?php $month = date('m');  if($month <= 2) echo "disabled='disabled'" ?>>February {{date("Y")}}</button></a>
-                    <a href="{{ route("jobExams",['id'=>$teacher->id,'month'=>3,'cat_id' => request()->route()->cat_id])}}"><button class="btn btn-info my-3" <?php $month = date('m');  if($month <= 3) echo "disabled='disabled'" ?>>March {{date("Y")}}</button></a>
-                    <a href="{{ route("jobExams",['id'=>$teacher->id,'month'=>4,'cat_id' => request()->route()->cat_id])}}"><button class="btn btn-info my-3" <?php $month = date('m');  if($month <= 4) echo "disabled='disabled'" ?>>April {{date("Y")}}</button></a>
-                    <a href="{{ route("jobExams",['id'=>$teacher->id,'month'=>5,'cat_id' => request()->route()->cat_id])}}"><button class="btn btn-info my-3" <?php $month = date('m');  if($month <= 5) echo "disabled='disabled'" ?>>May {{date("Y")}}</button></a>
-                    <a href="{{ route("jobExams",['id'=>$teacher->id,'month'=>6,'cat_id' => request()->route()->cat_id])}}"><button class="btn btn-info my-3" <?php $month = date('m');  if($month <= 6) echo "disabled='disabled'" ?>>June {{date("Y")}}</button></a>
-                    <a href="{{ route("jobExams",['id'=>$teacher->id,'month'=>7,'cat_id' => request()->route()->cat_id])}}"><button class="btn btn-info my-3" <?php $month = date('m');  if($month <= 7) echo "disabled='disabled'" ?>>July {{date("Y")}}</button></a>
-                    <a href="{{ route("jobExams",['id'=>$teacher->id,'month'=>8,'cat_id' => request()->route()->cat_id])}}"><button class="btn btn-info my-3" <?php $month = date('m');  if($month <= 8) echo "disabled='disabled'" ?>>August {{date("Y")}}</button></a>
-                    <a href="{{ route("jobExams",['id'=>$teacher->id,'month'=>9,'cat_id' => request()->route()->cat_id])}}"><button class="btn btn-info my-3" <?php $month = date('m');  if($month <= 9) echo "disabled='disabled'" ?>>September {{date("Y")}}</button></a>
-                    <a href="{{ route("jobExams",['id'=>$teacher->id,'month'=>10,'cat_id' => request()->route()->cat_id])}}"><button class="btn btn-info my-3" <?php $month = date('m');  if($month <= 10) echo "disabled='disabled'" ?>>Auctober {{date("Y")}}</button></a>
-                    <a href="{{ route("jobExams",['id'=>$teacher->id,'month'=>11,'cat_id' => request()->route()->cat_id])}}"><button class="btn btn-info my-3" <?php $month = date('m');  if($month <= 11) echo "disabled='disabled'" ?>>November {{date("Y")}}</button></a>
-                    <a href="{{ route("jobExams",['id'=>$teacher->id,'month'=>12,'cat_id' => request()->route()->cat_id])}}"><button class="btn btn-info my-3" <?php $month = date('m');  if($month <= 12) echo "disabled='disabled'" ?>>December {{date("Y")}}</button></a>
+                    <a href="{{ route("jobExams",['id'=>$teacher->id,'month'=>1,'cat_id' => request()->route()->cat_id])}}"><button class="btn btn-info my-3 <?php $month = date('m');  if($month < 1) echo "d-none"?>" >January {{date("Y")}}</button></a>
+                    <a href="{{ route("jobExams",['id'=>$teacher->id,'month'=>2,'cat_id' => request()->route()->cat_id])}}"><button class="btn btn-info my-3 <?php $month = date('m');  if($month < 2) echo "d-none"?>">February {{date("Y")}}</button></a>
+                    <a href="{{ route("jobExams",['id'=>$teacher->id,'month'=>3,'cat_id' => request()->route()->cat_id])}}"><button class="btn btn-info my-3 <?php $month = date('m');  if($month < 3) echo "d-none"?>">March {{date("Y")}}</button></a>
+                    <a href="{{ route("jobExams",['id'=>$teacher->id,'month'=>4,'cat_id' => request()->route()->cat_id])}}"><button class="btn btn-info my-3 <?php $month = date('m');  if($month < 4) echo "d-none"?>">April {{date("Y")}}</button></a>
+                    <a href="{{ route("jobExams",['id'=>$teacher->id,'month'=>5,'cat_id' => request()->route()->cat_id])}}"><button class="btn btn-info my-3 <?php $month = date('m');  if($month < 5) echo "d-none"?>">May {{date("Y")}}</button></a>
+                    <a href="{{ route("jobExams",['id'=>$teacher->id,'month'=>6,'cat_id' => request()->route()->cat_id])}}"><button class="btn btn-info my-3 <?php $month = date('m');  if($month < 6) echo "d-none"?>">June {{date("Y")}}</button></a>
+                    <a href="{{ route("jobExams",['id'=>$teacher->id,'month'=>7,'cat_id' => request()->route()->cat_id])}}"><button class="btn btn-info my-3 <?php $month = date('m');  if($month < 7) echo "d-none"?>">July {{date("Y")}}</button></a>
+                    <a href="{{ route("jobExams",['id'=>$teacher->id,'month'=>8,'cat_id' => request()->route()->cat_id])}}"><button class="btn btn-info my-3 <?php $month = date('m');  if($month < 8) echo "d-none"?>">August {{date("Y")}}</button></a>
+                    <a href="{{ route("jobExams",['id'=>$teacher->id,'month'=>9,'cat_id' => request()->route()->cat_id])}}"><button class="btn btn-info my-3 <?php $month = date('m');  if($month < 9) echo "d-none"?>">September {{date("Y")}}</button></a>
+                    <a href="{{ route("jobExams",['id'=>$teacher->id,'month'=>10,'cat_id' => request()->route()->cat_id])}}"><button class="btn btn-info my-3 <?php $month = date('m');  if($month < 10) echo "d-none"?>">Auctober {{date("Y")}}</button></a>
+                    <a href="{{ route("jobExams",['id'=>$teacher->id,'month'=>11,'cat_id' => request()->route()->cat_id])}}"><button class="btn btn-info my-3 <?php $month = date('m');  if($month < 11) echo "d-none"?>">November {{date("Y")}}</button></a>
+                    <a href="{{ route("jobExams",['id'=>$teacher->id,'month'=>12,'cat_id' => request()->route()->cat_id])}}"><button class="btn btn-info my-3 <?php $month = date('m');  if($month < 12) echo "d-none"?>">December {{date("Y")}}</button></a>
                 </div>
             @foreach ($exams as $exam)
             <div class="col-md-3 d-flex justify-content-around my-3">
@@ -39,7 +39,7 @@
                     <img src="{{asset('assets/img/std.jpg')}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><b> {{$exam->exam_title}}</b></h5>
-                        <span class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger">
+                        <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
                             Free Exam
                           </span>
                         <p class="text-sm"><b>Exam Duration :</b> {{ $exam->duration}} Munites</p>

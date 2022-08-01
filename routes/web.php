@@ -8,6 +8,7 @@ use App\Http\Controllers\SectionsController;
 use App\Http\Controllers\QuestionsController;
 use App\Http\Livewire\AddJobCategoryComponent;
 use App\Http\Livewire\AddTeacherComponent;
+use App\Http\Livewire\AdminEditTeacherComponent;
 use App\Http\Livewire\AdminQuestionListComponent;
 use App\Http\Livewire\AdminTeacherList;
 use App\Http\Livewire\AllTeacherComponent;
@@ -24,6 +25,7 @@ use App\Http\Livewire\JobExamComponent;
 use App\Http\Livewire\JobLeaderboardComponent;
 use App\Http\Livewire\JobPracticeCategoryList;
 use App\Http\Livewire\LeaderBoardComponent;
+use App\Http\Livewire\UserEditComponent;
 use App\Http\Livewire\UserQuizlv;
 
 /*
@@ -51,9 +53,15 @@ Route::get('/quizlavel/{id}', UserQuizlv::class)->name('quizLavel');
 
 Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(function () {
 
-    //Route::resource('users', ManageUserController::class);
 
+    //User
     Route::get('/users', [ManageUserController::class, 'index'])->name('usersIndex');
+
+    Route::get('/edituser/{id}',UserEditComponent::class)
+        ->name('editUser');
+    
+    Route::post('/updateUser/{id}', [UserEditComponent::class, 'updateUser'])
+        ->name('updateUser');
 
     Route::get('/adminhome', [AdminController::class, 'adminhome'])->name('adminhome');
 
@@ -67,6 +75,12 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(fu
     //Teacher
     Route::get('/teacherList',AdminTeacherList::class)
         ->name('teacherList');
+
+    Route::get('/editteacher/{id}',AdminEditTeacherComponent::class)
+        ->name('editTeacher');
+
+    Route::post('/updateteacher/{id}', [AdminEditTeacherComponent::class, 'updateTeacher'])
+        ->name('updateTeacher');
 
     Route::get('/createTeacher',AddTeacherComponent::class)
         ->name('createTeacher');
@@ -105,19 +119,19 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(fu
         ->name('detailQuestion');
 
     //Lavel
-    Route::get('/createSection', [SectionsController::class, 'createSection'])
+    Route::get('/createLavel', [SectionsController::class, 'createSection'])
         ->name('createSection');
 
-    Route::post('/deleteSection/{id}', [SectionsController::class, 'deleteSection'])
+    Route::post('/deleteLavel/{id}', [SectionsController::class, 'deleteSection'])
         ->name('deleteSection');
 
-    Route::post('/storeSection/section', [SectionsController::class, 'storeSection'])
+    Route::post('/storeLavel/Lavel', [SectionsController::class, 'storeSection'])
         ->name('storeSection');
 
-    Route::get('/editSection/{section}', [SectionsController::class, 'editSection'])
+    Route::get('/editLavel/{section}', [SectionsController::class, 'editSection'])
         ->name('editSection');
 
-    Route::post('/updateSection/{section}', [SectionsController::class, 'updateSection'])
+    Route::post('/updateLavel/{section}', [SectionsController::class, 'updateSection'])
         ->name('updateSection');
 
     Route::get('/listLavel', [SectionsController::class, 'listSection'])

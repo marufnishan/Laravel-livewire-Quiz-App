@@ -10,7 +10,7 @@
                 <h2 class="text-2xl font-bold card bg-green-600 p-4 text-gray-100 rounded-t-lg mx-auto">Update Exam</h2>
                 <div class="mt-2 max-w-auto mx-auto card p-4 bg-white rounded-b-lg shadow-md">
                     <div class="grid grid-cols-1 gap-6">
-                        <form action="{{route('updateExam', $exam->id)}}" method="post">
+                        <form action="{{route('updateExam', $exam->id)}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <label class="block">
                                 <span class="text-gray-700">Exam Name</span>
@@ -18,6 +18,18 @@
                                 <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
                                 @enderror
                                 <input name="exam_title" value="{{old('exam_title', $exam->exam_title)}}" type="text" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" />
+                            </label>
+                            <label class="block">
+                                @error('exam_thumbnail')
+                                <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
+                                @enderror
+                                <input name="exam_thumbnail" value="{{ old('exam_thumbnail') }}" type="file" class="form-control my-3" wire:model="newimage" />
+                                @if($newimage)
+                                    <img class="my-3" src="{{$newimage->temporaryUrl()}}" width="200" height="200" />
+                                @elseif($exam->exam_thumbnail)
+                                <img src="{{asset('assets/img/examthumbnail/')}}{{$exam->exam_thumbnail}}" width="200" alt="...">
+                                @endif
+                                
                             </label>
                             <label class="block">
                                 <span class="text-gray-700">Exam Date-Time</span>

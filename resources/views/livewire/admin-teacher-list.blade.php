@@ -77,7 +77,7 @@
                                                 <div class="text-sm text-gray-900">{{ $teacher->category->cat_name }}</div>
                                             </td>
                                             <td class="sm:flex align-middle justify-center items-center px-6 py-1 text-right text-sm font-medium">
-                                                <a href="{{-- {{ route('editExam', $exam->id )}} --}} " class="text-green-500 hover:text-green-700">
+                                                <a href="{{ route('editTeacher', $teacher->id )}} " class="text-green-500 hover:text-green-700">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 20 20" fill="currentColor">
                                                         <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
                                                         <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd" />
