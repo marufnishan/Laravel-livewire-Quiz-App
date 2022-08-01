@@ -29,11 +29,12 @@
                             @endforeach
                                 <a href="{{route('champEnroll',$exam->id)}}" class="btn btn-success">Enroll Now</a>
                         @else
-                        <a href="{{route('champEnroll',$exam->id)}}" class="btn btn-danger">Enroll Now1</a>
+                        <a href="{{route('champEnroll',$exam->id)}}" class="btn btn-danger">Enroll Now</a>
+                        <a href="{{route('Invitation',$exam->id)}}" class="btn btn-primary">Invite</a>
                         @endif
                             @else
                         <a href="{{route('quizLavel',$exam->id)}}" class="btn btn-success me-3">Practice</a>
-                        <a href="#" class="btn btn-primary">Invite</a>
+                        <a href="{{route('Invitation',$exam->id)}}" class="btn btn-primary">Invite</a>
                         @endif
                     </div>
                 </div>

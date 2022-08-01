@@ -20,6 +20,7 @@ use App\Http\Livewire\EnrollComponent;
 use App\Http\Livewire\ExamComponent;
 use App\Http\Livewire\ExamEditComponent;
 use App\Http\Livewire\ExamListComponent;
+use App\Http\Livewire\InvitationComponent;
 use App\Http\Livewire\JobComponent;
 use App\Http\Livewire\JobExamComponent;
 use App\Http\Livewire\JobLeaderboardComponent;
@@ -45,6 +46,7 @@ Route::get('/', function () {
 
 Route::get('/champpractice',ChampionshipPractice::class)->name('champPractice');
 Route::get('/quizledarboard',LeaderBoardComponent::class)->name('QuizledarBoard');
+Route::get('/invitation/{id}',InvitationComponent::class)->name('Invitation');
 
 
 
