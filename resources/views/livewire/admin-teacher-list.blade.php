@@ -29,6 +29,18 @@
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                             <div class="p-2 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                <div>
+                                    @if (session()->has('message'))
+                                        <div class="alert alert-success">
+                                            {{ session('message') }}
+                                        </div>
+                                    @endif
+                                    @if (session()->has('warning'))
+                                        <div class="alert alert-danger">
+                                            {{ session('warning') }}
+                                        </div>
+                                    @endif
+                                </div>
                                 <table class="min-w-full divide-y divide-gray-200">
                                     <thead class="tracking-wide font-bold rounded border-2 bg-green-500 text-white  transition shadow-md py-2 px-6 items-center">
                                         <tr>

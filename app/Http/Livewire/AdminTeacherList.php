@@ -15,7 +15,8 @@ class AdminTeacherList extends Component
             unlink('assets/img/teacherprofile'.'/'.$teacher->image);
         }
         $teacher->delete();
-        session()->flash('message','Teacher has been deleted successfully');
+        session()->flash('warning','Teacher has been deleted successfully');
+        return redirect()->back();
     }
     public function render()
     {

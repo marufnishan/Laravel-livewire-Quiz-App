@@ -7,6 +7,12 @@ use Livewire\Component;
 
 class JobPracticeCategoryList extends Component
 {
+    public function delete($id){
+        $category = Category::findOrFail($id);
+        $category->delete();
+        session()->flash('warning','Exam has been deleted successfully');
+        return redirect()->back();
+    }
     public function render()
     {
         $categories = Category::paginate(10);

@@ -17,7 +17,8 @@ class ExamListComponent extends Component
             unlink('assets/img/examthumbnail'.'/'.$exam->exam_thumbnail);
         }
         $exam->delete();
-        return redirect()->back()->withSuccess('Exam with id: ' . $exam->id . ' deleted successfully');
+        session()->flash('warning','Exam has been deleted successfully');
+        return redirect()->back();
     }
     public function render()
     {

@@ -30,7 +30,8 @@ class AddTeacherComponent extends Component
             $teacher->subject = $request->subject;
             $teacher->cat_id = $request->cat_id;
             $teacher->save();
-            return redirect()->back()->with('success', 'Teacher Created');
+            session()->flash('message', 'Teacher Created !');
+            return redirect()->back();
 
     }
     public function render()

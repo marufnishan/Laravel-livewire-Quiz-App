@@ -27,7 +27,7 @@ class SectionsController extends Controller
             'section.*' => 'required',
         ]);
         auth()->user()->sections()->createMany($data);
-        return redirect()->route('listSection')->with('success', 'Section created successfully!');
+        return redirect()->route('listSection')->with('success', 'Lavel created successfully!');
     }
 
     public function editSection(Section $section)
@@ -48,7 +48,7 @@ class SectionsController extends Controller
         $record = Section::findOrFail($section->id);
         $input = $request->all();
         $record->fill($input)->save();
-        session()->flash('success', 'Section saved successfully!');
+        session()->flash('success', 'Lavel saved successfully!');
         return redirect()->route('listSection');
     }
 
@@ -63,6 +63,6 @@ class SectionsController extends Controller
         //$sections = Section::paginate(10);
         $section = Section::findOrFail($id);
         $section->delete();
-        return redirect()->back()->withSuccess('Section with id: ' . $section->id . ' deleted successfully');
+        return redirect()->back()->withSuccess('Lavel with id: ' . $section->id . ' deleted successfully');
     }
 }

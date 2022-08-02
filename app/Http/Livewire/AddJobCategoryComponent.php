@@ -14,8 +14,8 @@ class AddJobCategoryComponent extends Component
             'cat_name' =>'required|unique:categories,cat_name',
         ]);
         Category::create($request->all());
-
-        return redirect()->back()->with('success', 'Category Created');
+        session()->flash('message', 'Category Created !');
+            return redirect()->back();
 
     }
     public function render()

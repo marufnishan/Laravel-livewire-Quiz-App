@@ -49,7 +49,8 @@ class ExamComponent extends Component
             $exam->subscription = $request->subscription;
             $exam->teacher_id  = $request->teacher_id ;
             $exam->save();
-            return redirect()->back()->with('success', 'Exam Created');
+            session()->flash('message', 'Exam Created !');
+            return redirect()->back();
         }
         
         

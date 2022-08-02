@@ -10,9 +10,13 @@
                 <h2 class="text-2xl font-bold card bg-green-600 p-4 text-gray-100 rounded-t-lg mx-auto">New Exam</h2>
                 <div class="mt-2 max-w-auto mx-auto card p-4 bg-white rounded-b-lg shadow-md">
                     <div class="grid grid-cols-1 gap-6">
-                        @if (Session::has('message'))
-                        <div class="alert alert-info my-3">{{ Session::get('success') }}</div>
-                        @endif
+                        <div>
+                            @if (session()->has('message'))
+                                <div class="alert alert-success">
+                                    {{ session('message') }}
+                                </div>
+                            @endif
+                        </div>
                         <form action="{{route('storeTeacher')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <label class="block">

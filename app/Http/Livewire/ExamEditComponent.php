@@ -47,8 +47,8 @@ class ExamEditComponent extends Component
         $exam->subscription  =$request->subscription ;
         $exam->teacher_id  =$request->teacher_id ;
         $exam->save();
-        session()->flash('success', 'Exam Updated successfully!');
-        return redirect()->route('examList');
+        session()->flash('message', 'Exam Updated successfully !');
+            return redirect()->route('examList');
     }
 
     public $exam;

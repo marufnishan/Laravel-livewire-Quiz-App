@@ -37,8 +37,8 @@ class AdminEditTeacherComponent extends Component
         $teacher->subject = $request->subject;
         $teacher->cat_id = $request->cat_id;
         $teacher->save();
-        session()->flash('success', 'Teacher Updated successfully!');
-        return redirect()->route('teacherList');
+        session()->flash('message', 'Teacher Updated successfully !');
+            return redirect()->route('teacherList');
     }
     public function render()
     {
