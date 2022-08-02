@@ -12,7 +12,11 @@
             @foreach($exams as $exam)
             <div class="col-md-3 my-3 d-flex justify-content-around">
                 <div class="card" style="width: 18rem;">
-                    <img src="{{asset('assets/img/std.jpg')}}" class="card-img-top" alt="...">
+                    @if(!empty($exam->exam_thumbnail))
+                    <img src="{{asset('assets/img/examthumbnail')}}/{{$exam->exam_thumbnail}}" class="card-img-top" alt="championship_thumbnail">
+                    @else
+                    <img src="{{asset('assets/img/std.jpg')}}" class="card-img-top" alt="championship_thumbnail">
+                    @endif
                     <div class="card-body">
                         <h5 class="card-title">{{$exam->exam_title}}</h5>
                         <p class="text-sm"><b>Total Question :</b>

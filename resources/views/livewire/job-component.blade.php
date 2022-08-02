@@ -11,7 +11,11 @@
         <div class="row">
                 <div class="col-md-3  my-auto">
                         <div class="card" style="width: 18rem;">
-                            <img src="{{asset('assets/img/profile/teacher1.png')}}" class="card-img-top" alt="...">
+                            @if(!empty($teacher->image))
+                            <img src="{{asset('assets/img/teacherprofile')}}/{{$teacher->image}}" class="card-img-top" alt="job_exam_thumbnail">
+                            @else
+                            <img src="{{asset('assets/img/profile/teacher1.png')}}" class="card-img-top" alt="teacherimg">
+                            @endif
                             <div class="card-body">
                                 <h5 class="card-title"><b>Name : {{$teacher->name}}</b></h5>
                                 <p class="text-sm"><b>Subject :</b> {{ $teacher->subject}}</p>

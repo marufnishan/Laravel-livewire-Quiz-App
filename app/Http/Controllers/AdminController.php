@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Section;
 use App\Models\Question;
 use App\Models\QuizHeader;
+use App\Models\Slider;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 
@@ -22,9 +23,10 @@ class AdminController extends Controller
         $examCount = Exam::count();
         $teacherCount = Teacher::count();
         $categories = Category::count();
+        $sliders = Slider::count();
         $latestUsers = User::latest()->take(5)->get();
         return view('admins.adminhome', compact('latestUsers', 'sectionCount', 'questionCount', 'userCount', 'examCount', 'quizCount',
-        'teacherCount','categories'));
+        'teacherCount','categories','sliders'));
     }
 
     public function globalQuizzes()

@@ -7,6 +7,7 @@ use App\Http\Controllers\ManageUserController;
 use App\Http\Controllers\SectionsController;
 use App\Http\Controllers\QuestionsController;
 use App\Http\Livewire\AddJobCategoryComponent;
+use App\Http\Livewire\AddSliderComponent;
 use App\Http\Livewire\AddTeacherComponent;
 use App\Http\Livewire\AdminEditTeacherComponent;
 use App\Http\Livewire\AdminQuestionListComponent;
@@ -26,6 +27,7 @@ use App\Http\Livewire\JobExamComponent;
 use App\Http\Livewire\JobLeaderboardComponent;
 use App\Http\Livewire\JobPracticeCategoryList;
 use App\Http\Livewire\LeaderBoardComponent;
+use App\Http\Livewire\SliderListComponent;
 use App\Http\Livewire\UserEditComponent;
 use App\Http\Livewire\UserQuizlv;
 
@@ -64,6 +66,16 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(fu
     
     Route::post('/updateUser/{id}', [UserEditComponent::class, 'updateUser'])
         ->name('updateUser');
+
+    //Slider
+    Route::get('/sliderList',SliderListComponent::class)
+        ->name('allSlider');
+
+    Route::get('/admin/addslider',AddSliderComponent::class)
+        ->name('addSlider');
+
+    Route::post('/storeslider', [AddSliderComponent::class, 'storeSlider'])
+        ->name('storeSlider');
 
     Route::get('/adminhome', [AdminController::class, 'adminhome'])->name('adminhome');
 
