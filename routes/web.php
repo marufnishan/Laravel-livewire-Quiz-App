@@ -27,6 +27,7 @@ use App\Http\Livewire\JobExamComponent;
 use App\Http\Livewire\JobLeaderboardComponent;
 use App\Http\Livewire\JobPracticeCategoryList;
 use App\Http\Livewire\LeaderBoardComponent;
+use App\Http\Livewire\SliderEditComponent;
 use App\Http\Livewire\SliderListComponent;
 use App\Http\Livewire\UserEditComponent;
 use App\Http\Livewire\UserQuizlv;
@@ -73,6 +74,12 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(fu
 
     Route::get('/admin/addslider',AddSliderComponent::class)
         ->name('addSlider');
+
+    Route::get('/editSlider/{id}',SliderEditComponent::class)
+        ->name('editSlider');
+
+    Route::post('/updateSlider/{id}', [SliderEditComponent::class, 'updateSlider'])
+        ->name('updateSlider');
 
     Route::post('/storeslider', [AddSliderComponent::class, 'storeSlider'])
         ->name('storeSlider');

@@ -27,7 +27,7 @@
                                 @if($newimage)
                                     <img class="my-3" src="{{$newimage->temporaryUrl()}}" width="200" height="200" />
                                 @elseif($exam->exam_thumbnail)
-                                <img src="{{asset('assets/img/examthumbnail/')}}{{$exam->exam_thumbnail}}" width="200" alt="...">
+                                <img src="{{asset('assets/img/examthumbnail')}}/{{$exam->exam_thumbnail}}" width="200" alt="...">
                                 @endif
                                 
                             </label>

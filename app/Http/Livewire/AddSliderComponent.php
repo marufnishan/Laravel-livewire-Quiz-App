@@ -29,7 +29,6 @@ class AddSliderComponent extends Component
             $slider->save();
             session()->flash('message', 'Slider added successfully !');
             return redirect()->back();
-
     }
     public function render()
     {
