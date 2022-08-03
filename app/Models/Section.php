@@ -15,6 +15,7 @@ class Section extends Model
         'details',
         'question_size',
         'exam_id',
+        'duration',
     ];
 
     public function user()
@@ -25,6 +26,11 @@ class Section extends Model
     public function questions()
     {
         return $this->hasMany(Question::class);
+    }
+
+    public function exam()
+    {
+        return $this->hasOne(Exam::class,'id','exam_id');
     }
 
     public function quizHeaders()

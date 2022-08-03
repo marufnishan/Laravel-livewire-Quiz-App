@@ -54,9 +54,6 @@
                                                 Exam Date
                                             </th>
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
-                                                Exam Duration
-                                            </th>
-                                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
                                                 Total Question
                                             </th>
                                             <th scope="col" class="relative px-6 py-3">
@@ -87,9 +84,6 @@
                                             </td>
                                             <td class="px-6 py-1">
                                                 <div class="text-sm text-gray-900">{{$exam->exam_datetime }}</div>
-                                            </td>
-                                            <td class="px-6 py-1">
-                                                <div class="text-sm text-gray-900">{{ $exam->duration }}</div>
                                             </td>
                                             <td class="px-6 py-1">
                                                 <div class="text-sm text-gray-900">{{ $exam->total_question }}</div>

@@ -155,7 +155,7 @@ class UserQuizlv extends Component
         ]);
 
         $exam = Exam::find($this->examid);
-        $this->examduration=$exam->duration;
+        $this->examduration=$this->lavelqsize->duration;
 
         $this->count = 1;
         // Get the first/next question for the quiz.

@@ -18,7 +18,6 @@ class ExamEditComponent extends Component
         $data = $request->validate([
             'exam_title' =>'required|unique:exams,exam_title',
             'exam_datetime' => 'required',
-            'duration' => 'required',
             'total_question' => 'required',
             'marks_per_right_answer' => 'required',
             'exam_code' => 'required|unique:exams,exam_code',
@@ -36,7 +35,6 @@ class ExamEditComponent extends Component
             $exam->exam_thumbnail = $imageName;
         }
         $exam->exam_datetime =$request->exam_datetime;
-        $exam->duration =$request->duration;
         $exam->total_question =$request->total_question;
         $exam->marks_per_right_answer =$request->marks_per_right_answer;
         $exam->exam_code =$request->exam_code;

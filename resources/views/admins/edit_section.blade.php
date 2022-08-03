@@ -46,6 +46,13 @@
                                 <input name="question_size" value="{{old('question_size', $section->question_size)}}" type="text" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" />
                             </label>
                             <label class="block">
+                                <span class="text-gray-700">Exam Duration</span>
+                                @error('duration')
+                                <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
+                                @enderror
+                                <input name="duration" value="{{old('duration', $section->duration)}}" type="text" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" />
+                            </label>
+                            <label class="block">
                                 <span class="text-gray-700">Is this section active?</span>
                                 @error('is_active')
                                 <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>

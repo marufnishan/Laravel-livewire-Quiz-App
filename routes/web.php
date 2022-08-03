@@ -88,11 +88,6 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(fu
 
     Route::get('/globalQuizzes', [AdminController::class, 'globalQuizzes'])->name('globalQuizzes');
 
-    Route::get('/createExam',ExamComponent::class)
-        ->name('createExam');
-
-    Route::post('/storeExam', [ExamComponent::class, 'storeExam'])
-        ->name('storeExam');
     //Teacher
     Route::get('/teacherList',AdminTeacherList::class)
         ->name('teacherList');
@@ -122,6 +117,12 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(fu
     //Exam
     Route::get('/examList',ExamListComponent::class)
         ->name('examList');
+    
+    Route::get('/createExam',ExamComponent::class)
+        ->name('createExam');
+
+    Route::post('/storeExam', [ExamComponent::class, 'storeExam'])
+        ->name('storeExam');
 
     Route::get('/editexam/{id}',ExamEditComponent::class)
         ->name('editExam');

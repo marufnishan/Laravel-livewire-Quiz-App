@@ -10,7 +10,7 @@ class Exam extends Model
     use HasFactory;
 
     protected $fillable = [
-        'exam_title', 'exam_datetime', 'duration', 'total_question', 'marks_per_right_answer','exam_code','status','exam_thumbnail','exam_type','cat_id','price','subscription','teacher_id'
+        'exam_title', 'exam_datetime','total_question', 'marks_per_right_answer','exam_code','status','exam_thumbnail','exam_type','cat_id','price','subscription','teacher_id'
       ];
 
     public function lavel()

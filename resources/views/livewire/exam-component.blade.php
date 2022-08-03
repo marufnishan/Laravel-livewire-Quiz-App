@@ -42,13 +42,6 @@
                                     <input name="exam_datetime" value="{{ old('exam_datetime') }}" type="datetime-local" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" />
                                 </label>
                                 <label class="block">
-                                    <span class="text-gray-700 my-3">Exam Duration</span>
-                                    @error('duration')
-                                    <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
-                                    @enderror
-                                    <input name="duration" value="{{ old('duration') }}" type="number" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" />
-                                </label>
-                                <label class="block">
                                     <span class="text-gray-700 my-3">Total Question</span>
                                     @error('total_question')
                                     <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
@@ -136,7 +129,7 @@
                                     </select>
                                 </label>
                                 <div class="flex items-center justify-end mt-4">
-                                    <a href="{{route('listSection')}}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">Back</a>
+                                    <a href="{{route('examList')}}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">Back</a>
     
                                     <x-jet-button type="submit" class="ml-4">
                                         {{ __('Create') }}

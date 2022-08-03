@@ -42,6 +42,8 @@ class SectionsController extends Controller
             'name' => 'required|min:5|max:255',
             'description' => 'required|min:5|max:255',
             'is_active' => 'required',
+            'question_size' => 'required',
+            'duration' => 'required',
             'details' =>    'required|min:10|max:1024',
             'exam_id' => 'required',
         ]);

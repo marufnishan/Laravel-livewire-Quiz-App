@@ -44,6 +44,9 @@
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
                                                 Lavel Question Size
                                             </th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
+                                                Exam Duration
+                                            </th>
                                             <th scope="col" class="relative px-6 py-3">
                                                 <span class="sr-only">Edit</span>
                                             </th>
@@ -71,6 +74,9 @@
                                             </td>
                                             <td class="px-6 py-1">
                                                 <div class="text-sm text-gray-900">{{ $section->question_size }}</div>
+                                            </td>
+                                            <td class="px-6 py-1">
+                                                <div class="text-sm text-gray-900">{{ $section->duration }}</div>
                                             </td>
                                             <td class="sm:flex align-middle justify-center items-center px-6 py-1 text-right text-sm font-medium">
                                                 <a href="{{ route('createQuestion', $section->id )}}" class="text-green-500 hover:text-green-700">
@@ -100,7 +106,9 @@
                                     </tbody>
                                 </table>
                             </div>
-                            {{ $sections->links() }}
+                            <div class="py-3">
+                                {{ $sections->links() }}
+                            </div>
                         </div>
                     </div>
                 </div>

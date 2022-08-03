@@ -39,13 +39,6 @@
                                 <input name="exam_datetime" value="{{old('exam_datetime', $exam->exam_datetime)}}" type="datetime-local" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" />
                             </label>
                             <label class="block">
-                                <span class="text-gray-700">Exam Duration</span>
-                                @error('duration')
-                                <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
-                                @enderror
-                                <input name="duration" value="{{old('duration', $exam->duration)}}" type="text" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" />
-                            </label>
-                            <label class="block">
                                 <span class="text-gray-700">Total Question</span>
                                 @error('total_question')
                                 <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>

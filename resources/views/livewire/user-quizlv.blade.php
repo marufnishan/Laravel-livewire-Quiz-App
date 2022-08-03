@@ -195,6 +195,15 @@
                             </select>
                             @error('sectionId') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
                         </div>
+                        @if (!is_null($sectionId))
+                        <div class="relative mb-4">
+                            <select name="quiz_size" id="quiz_size" wire:model="quizSize" class="max-w-full block w-full mt-1 rounded-md bg-gray-100 border-2 border-gray-500 focus:bg-white focus:ring-0">
+                                <option value="">Select</option>
+                                <option value="{{ $lavelqsize->question_size }}">{{ $lavelqsize->question_size }}</option>
+                            </select>
+                            @error('quizSize') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
+                        </div>
+                        @if($lavelqsize->exam->exam_type == 'Practice')
                         <div class="flex items-start">
                             <div class="flex items-center h-5">
                                 <input wire:model="learningMode" id="learningMode" name="learningMode" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
@@ -204,14 +213,7 @@
                                 <p class="text-gray-500">If checked, this will enable explanation tab for each question.</p>
                             </div>
                         </div>
-                        @if (!is_null($sectionId))
-                        <div class="relative mb-4">
-                            <select name="quiz_size" id="quiz_size" wire:model="quizSize" class="max-w-full block w-full mt-1 rounded-md bg-gray-100 border-2 border-gray-500 focus:bg-white focus:ring-0">
-                                <option value="">Select</option>
-                                <option value="{{ $lavelqsize->question_size }}">{{ $lavelqsize->question_size }}</option>
-                            </select>
-                            @error('quizSize') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
-                        </div>
+                        @endif
                         @else
                         <div class="relative mb-4">
                             <select name="quiz_size" id="quiz_size" wire:model="quizSize" class="max-w-full block w-full mt-1 rounded-md bg-gray-100 border-2 border-gray-500 focus:bg-white focus:ring-0">
