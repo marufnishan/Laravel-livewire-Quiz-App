@@ -18,6 +18,7 @@ class UserQuizlv extends Component
     public $quizid;
     public $examid;
     public $sections;
+    public $lavelqsize;
     public $count = 0;
     public $sectionId;
     public $examduration;
@@ -74,6 +75,7 @@ class UserQuizlv extends Component
         $this->sections = Section::where('exam_id',$this->examid)->withcount('questions')->where('is_active', '1')
             ->orderBy('name')
             ->get();
+        $this->lavelqsize = Section::find($this->sectionId);
 
         return view('livewire.user-quizlv');
     }

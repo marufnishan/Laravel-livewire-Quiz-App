@@ -204,6 +204,15 @@
                                 <p class="text-gray-500">If checked, this will enable explanation tab for each question.</p>
                             </div>
                         </div>
+                        @if (!is_null($sectionId))
+                        <div class="relative mb-4">
+                            <select name="quiz_size" id="quiz_size" wire:model="quizSize" class="max-w-full block w-full mt-1 rounded-md bg-gray-100 border-2 border-gray-500 focus:bg-white focus:ring-0">
+                                <option value="">Select</option>
+                                <option value="{{ $lavelqsize->question_size }}">{{ $lavelqsize->question_size }}</option>
+                            </select>
+                            @error('quizSize') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
+                        </div>
+                        @else
                         <div class="relative mb-4">
                             <select name="quiz_size" id="quiz_size" wire:model="quizSize" class="max-w-full block w-full mt-1 rounded-md bg-gray-100 border-2 border-gray-500 focus:bg-white focus:ring-0">
                                 <option value="">Select</option>
@@ -211,6 +220,7 @@
                             </select>
                             @error('quizSize') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
                         </div>
+                        @endif
                         <button type="submit" class="block w-full text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Start Quiz</button>
                     </form>
                 </div>
