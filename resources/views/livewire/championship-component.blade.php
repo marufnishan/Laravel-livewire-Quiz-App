@@ -27,7 +27,8 @@
                                     <a href="{{route('quizLavel',$exam->id)}}" class="btn btn-primary">Participate Now</a>
                                 @endif
                                 @if($enroll->exam_id == $exam->id && $enroll->user_id == auth()->id() && $enroll->exam_state == 'Participate')
-                                    <a href="{{route('userShowreasult',[$exam->id,auth()->id()])}}" type="button" class="btn btn-warning">Show Reasult</a>
+                                <a href="{{route('quizLavel',$exam->id)}}" class="btn btn-primary">Participate Now</a>
+                                {{-- <a href="{{route('userShowreasult',[$exam->id,auth()->id()])}}" type="button" class="btn btn-warning">Show Reasult</a> --}}
                                 @endif
                             @endforeach
                                 <a href="{{route('champEnroll',$exam->id)}}" class="btn btn-success">Enroll Now</a>

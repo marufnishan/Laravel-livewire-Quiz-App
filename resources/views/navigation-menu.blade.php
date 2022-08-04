@@ -36,8 +36,18 @@
                         @livewire('catecogy-component')
                     </div>
                 </li>
+                
                 <li class="nav-item">
-
+                    <div class="dropdown"><a class="nav-link">আডমিশন প্রস্তুতি 
+                        </a>
+                        <div class="dropdown-content">
+                            <a href="#">মেডিক্যাল</a>
+                            <a href="#">ভার্সিটি</a>
+                            <a href="#">ইঞ্জিনিয়ারিং</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
                     <div class="dropdown"><a class="nav-link">লিডারবোর্ড
                         </a>
                         <div class="dropdown-content">

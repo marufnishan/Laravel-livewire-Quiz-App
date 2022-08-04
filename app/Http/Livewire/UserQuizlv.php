@@ -140,9 +140,12 @@ class UserQuizlv extends Component
         ->Where('exam_id',$this->examid)
         ->where('attendance_status','Absent')
         ->first();
-        $inrollstatus->attendance_status = 'Present';
-        $inrollstatus->exam_state = 'Participate';
-        $inrollstatus->update();
+        if($inrollstatus)
+            {
+                $inrollstatus->attendance_status = 'Present';
+                $inrollstatus->exam_state = 'Participate';
+                $inrollstatus->update();
+            }      
         }
         
         $this->validate();
