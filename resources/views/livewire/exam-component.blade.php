@@ -67,25 +67,39 @@
                                     @error('exam_type')
                                     <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
                                     @enderror
-                                    <select name="exam_type" value="{{ old('section.exam_type') }}" class="block w-full mt-1 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
+                                    <select name="exam_type" value="{{ old('section.exam_type') }}" class="block w-full mt-1 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" wire:model="examtype">
                                         <option value="">Select One Exam</option>
                                         <option value="Practice">Practice</option>
                                         <option value="Championship">Championship</option>
                                         <option value="Job">Job</option>
                                     </select>
                                 </label>
+                                @if($examtype =='Job')
                                 <label class="block">
-                                    <span class="text-gray-700 my-3">Job Category If Job Exam</span>
+                                    <span class="text-gray-700 my-3">Job Category</span>
                                     @error('cat_id')
                                     <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
                                     @enderror
-                                    <select name="cat_id" value="{{ old('section.cat_id') }}" class="block w-full mt-1 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
+                                    <select name="cat_id" value="{{ old('section.cat_id') }}" class="block w-full mt-1 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" wire:model="jobcategory">
                                         <option value="">Select Job Type</option>
                                          @foreach ($categories as $categorie)
                                         <option value="{{$categorie->id}}">{{$categorie->cat_name}}</option>
                                         @endforeach
                                     </select>
                                 </label>
+                                <label class="block">
+                                    <span class="text-gray-700 my-3">Teacher</span>
+                                    @error('teacher_id')
+                                    <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
+                                    @enderror
+                                    <select name="teacher_id" value="{{ old('section.teacher_id') }}" class="block w-full mt-1 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
+                                        <option value="">Select Teacher</option>
+                                         @foreach ($teachers->where('cat_id',$jobcategory) as $teacher)
+                                        <option value="{{$teacher->id}}">{{$teacher->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </label>
+                                @endif
                                 <label class="block">
                                     <span class="text-gray-700 my-3">Exam Price</span>
                                     @error('price')
@@ -103,18 +117,6 @@
                                         <option value="paid">Paid</option>
                                         <option value="free">Free</option>
                                         <option value="promotional">Promotional</option>
-                                    </select>
-                                </label>
-                                <label class="block">
-                                    <span class="text-gray-700 my-3">Teacher</span>
-                                    @error('teacher_id')
-                                    <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
-                                    @enderror
-                                    <select name="teacher_id" value="{{ old('section.teacher_id') }}" class="block w-full mt-1 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0">
-                                        <option value="">Select Teacher</option>
-                                         @foreach ($teachers as $teacher)
-                                        <option value="{{$teacher->id}}">{{$teacher->name}}</option>
-                                        @endforeach
                                     </select>
                                 </label>
                                 <label class="block">

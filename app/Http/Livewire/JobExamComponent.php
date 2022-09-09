@@ -11,7 +11,7 @@ class JobExamComponent extends Component
     public function mount($id,$month,$cat_id){
         $this->exams = Exam::where('status', 'Active')
             ->where('exam_type','Job')
-            ->where('subscription','free')
+            //->where('subscription','free')
             ->where('teacher_id',$id)
             ->where('cat_id',$cat_id)
             ->whereMonth('exam_datetime',$month)

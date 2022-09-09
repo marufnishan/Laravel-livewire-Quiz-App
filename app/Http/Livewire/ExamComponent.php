@@ -13,7 +13,13 @@ use Livewire\WithFileUploads;
 class ExamComponent extends Component
 {
     use WithFileUploads;
+    public $examtype;
+    public $jobcategory;
+    //public $teachers;
     public $exam_thumbnail;
+    /* public function mount(){
+        $this->teachers = Teacher::where('cat_id',$this->jobcategory)->get();
+    } */
     public function storeExam( Request $request)
     {
         $request->validate([
