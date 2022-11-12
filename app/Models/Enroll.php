@@ -11,6 +11,18 @@ class Enroll extends Model
     protected $fillable = [
         'user_id',
         'exam_id',
-        'attendance_status'
+        'attendance_status',
+        'phone_number',
+        'trx_id',
+        'email',
+        'approval',
+        'expeire_at'
+
     ];
+
+    
+    public function exam()
+    {
+        return $this->hasOne(Exam::class,'id','exam_id');
+    }
 }

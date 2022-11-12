@@ -13,7 +13,11 @@
                 <div class="col-md-3 d-flex justify-content-around my-3">     
             <a href="{{ route('jobPeparation',['id'=>$teacher->id,'cat_id' => request()->route()->id]) }}">
                 <div class="card" style="width: 18rem;">
+                    @if($teacher->image)
+                    <img src="{{asset('assets/img/teacherprofile')}}/{{$teacher->image}}" class="card-img-top" alt="...">
+                    @else
                     <img src="{{asset('assets/img/profile/teacher1.png')}}" class="card-img-top" alt="...">
+                    @endif
                     <div class="card-body">
                         <h5 class="card-title"><b>Name : {{$teacher->name}}</b></h5>
                         <p class="text-sm"><b>Subject :</b> {{ $teacher->subject}}</p>

@@ -2,7 +2,7 @@
     <div class="max-w-7xl m-4 mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <div class="mx-auto my-5 px-3">
-                <h2 class="text-2xl font-bold card bg-green-600 p-4 text-black-100 rounded-t-lg mx-auto">New Championship</h2>
+                <h2 class="text-2xl font-bold card bg-green-600 p-4 text-black-100 rounded-t-lg mx-auto">Exam Enrollment</h2>
                 <div class="mt-2 max-w-auto mx-auto card p-4 bg-white rounded-b-lg shadow-md">
                     <div class="grid grid-cols-1 gap-6 my-5">
                         <table class="table table-striped table-hover table-bordered">
@@ -26,6 +26,30 @@
                             <tr>
                                 <td><b>Exam Code</b></td>
                                 <td>{{$exams->exam_code}}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center" class="bg-dark text-light p-2 my-5 rounded" style="margin-left:0px !important">
+                                    <label class="form-label">Enter Bkash Transection ID : {{$trx_id}}</label>
+                                    <input class="form-control" name="trx_id" type="text" placeholder="transection id..." wire:model="trx_id" required autofocus autocomplete="trx_id">
+                                    @error('trx_id') <span class="text-danger">{{ $message }}</span> @enderror
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center" class="bg-dark text-light p-2 my-5 rounded" style="margin-left:0px !important">
+                                    <label class="form-label">Enter Bkash Transection Number : {{$phone}}</label>
+                                    <input class="form-control" name="phone" type="text" placeholder="transection number..." wire:model="phone" required autofocus autocomplete="phone">
+                                    @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center" class="bg-dark text-light p-2 my-5 rounded" style="margin-left:0px !important">
+                                    <label class="form-label">Enter Your Email : {{$student_mail}}</label>
+                                    <input class="form-control" name="student_mail" type="mail" placeholder="entre mail..." wire:model="student_mail" required  autocomplete="student_mail">
+                                    @error('student_mail') <span class="text-danger">{{ $message }}</span> @enderror
+                                </td>
+                                
                             </tr>
                                 <tr>
                                     <td colspan="2" align="center">

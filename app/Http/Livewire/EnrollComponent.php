@@ -10,13 +10,25 @@ use Livewire\Component;
 class EnrollComponent extends Component
 {
     public $exams;
+    public $trx_id;
+    public $phone;
+    public $student_mail;
+
+    protected $rules = [
+        'trx_id' => 'required|unique:enrolls',
+    ];
+
     public $isDisabled = false;
     public function enroll($id){
-        if(Auth::user()){
+        $this->validate();
+        if(Auth::user()){            
             Enroll::create([
                 'user_id' => auth()->id(),
                 'exam_id' => $id,
                 'attendance_status' => 'Absent',
+                'phone_number' => $this->phone,
+                'trx_id' => $this->trx_id,
+                'email' => $this->student_mail,
             ]);
             $this->isDisabled = true;
             return redirect()->back();

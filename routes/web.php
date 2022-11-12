@@ -11,6 +11,7 @@ use App\Http\Livewire\AddSliderComponent;
 use App\Http\Livewire\AddTeacherComponent;
 use App\Http\Livewire\AdminEditTeacherComponent;
 use App\Http\Livewire\AdminQuestionListComponent;
+use App\Http\Livewire\AdminShowEnrollsComponent;
 use App\Http\Livewire\AdminTeacherList;
 use App\Http\Livewire\AllTeacherComponent;
 use App\Http\Livewire\CatJobComponent;
@@ -169,6 +170,10 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(fu
 
     Route::post('/deleteQuiz/{id}', [LeaderBoardComponent::class, 'deleteQuiz'])
         ->name('deleteQuiz');
+
+    //Enroll
+    Route::get('/enroll_List',AdminShowEnrollsComponent::class)
+        ->name('enrollList');
     
 });
 

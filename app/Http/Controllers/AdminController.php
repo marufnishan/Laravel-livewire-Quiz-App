@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Enroll;
 use App\Models\Exam;
 use App\Models\User;
 use App\Models\Section;
@@ -24,8 +25,8 @@ class AdminController extends Controller
         $teacherCount = Teacher::count();
         $categories = Category::count();
         $sliders = Slider::count();
-        $latestUsers = User::latest()->take(5)->get();
-        return view('admins.adminhome', compact('latestUsers', 'sectionCount', 'questionCount', 'userCount', 'examCount', 'quizCount',
+        $enrolls  = Enroll::latest()->take(10)->get();
+        return view('admins.adminhome', compact('enrolls','sectionCount', 'questionCount', 'userCount', 'examCount', 'quizCount',
         'teacherCount','categories','sliders'));
     }
 
