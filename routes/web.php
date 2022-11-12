@@ -9,6 +9,7 @@ use App\Http\Controllers\QuestionsController;
 use App\Http\Livewire\AddJobCategoryComponent;
 use App\Http\Livewire\AddSliderComponent;
 use App\Http\Livewire\AddTeacherComponent;
+use App\Http\Livewire\AdminEditEnrollComponent;
 use App\Http\Livewire\AdminEditTeacherComponent;
 use App\Http\Livewire\AdminQuestionListComponent;
 use App\Http\Livewire\AdminShowEnrollsComponent;
@@ -174,6 +175,10 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(fu
     //Enroll
     Route::get('/enroll_List',AdminShowEnrollsComponent::class)
         ->name('enrollList');
+    Route::get('/edit_enroll/{id}',AdminEditEnrollComponent::class)
+        ->name('edit_enroll');
+    Route::post('/update_enroll/{id}',[AdminEditEnrollComponent::class,'updateEnroll'])
+        ->name('updateEnroll');
     
 });
 
