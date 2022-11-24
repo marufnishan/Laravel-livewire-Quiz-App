@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Enroll;
+use Carbon\Carbon;
 use Livewire\Component;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,8 @@ class AdminEditEnrollComponent extends Component
         ]);
         $enroll = Enroll::findOrFail($id);
         $enroll->approval = $request->approval;
-        $enroll->expeire_at = $request->expeire_at;
+        $current = Carbon::now();
+        $enroll->expeire_at = $current->addDays($request->expeire_at);;
         $enroll->save();
         session()->flash('message', 'Enroll Updated successfully !');
             return redirect()->route('enrollList');

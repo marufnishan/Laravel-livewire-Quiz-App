@@ -34,7 +34,7 @@
                                 @error('expeire_at')
                                 <span class="text-red-700 text-xs content-end float-right">{{$message}}</span>
                                 @enderror
-                                <input name="expeire_at" value="{{old('expeire_at', $enroll->expeire_at)}}" type="datetime-local" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" />
+                                <input name="expeire_at" value="{{old('expeire_at', $enroll->expeire_at)}}" type="text" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" placeholder="type dayes..." />
                             </label>
                             <div class="flex items-center justify-end mt-4">
                                 <a href="{{route('examList')}}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">Back</a>

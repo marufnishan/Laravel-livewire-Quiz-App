@@ -20,6 +20,7 @@ use App\Http\Livewire\ChampionshipComponent;
 use App\Http\Livewire\ChampionshipLeaderboardComponent;
 use App\Http\Livewire\ChampionshipPractice;
 use App\Http\Livewire\EnrollComponent;
+use App\Http\Livewire\EnrollExpeire;
 use App\Http\Livewire\ExamComponent;
 use App\Http\Livewire\ExamEditComponent;
 use App\Http\Livewire\ExamListComponent;
@@ -179,6 +180,7 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(fu
         ->name('edit_enroll');
     Route::post('/update_enroll/{id}',[AdminEditEnrollComponent::class,'updateEnroll'])
         ->name('updateEnroll');
+    Route::get('/expeire',EnrollExpeire::class)->name('enroll_expeire');
     
 });
 
