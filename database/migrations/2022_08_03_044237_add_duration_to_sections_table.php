@@ -14,7 +14,7 @@ class AddDurationToSectionsTable extends Migration
     public function up()
     {
         Schema::table('sections', function (Blueprint $table) {
-            $table->string('duration');
+            $table->string('duration')->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class AddDurationToSectionsTable extends Migration
     public function down()
     {
         Schema::table('sections', function (Blueprint $table) {
-            $table->string('duration');
+            $table->string('duration')->nullable();
         });
     }
 }

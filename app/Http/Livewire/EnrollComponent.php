@@ -13,6 +13,7 @@ class EnrollComponent extends Component
     public $trx_id;
     public $phone;
     public $student_mail;
+    public $inrollstatus;
 
     protected $rules = [
         'trx_id' => 'required|unique:enrolls',
@@ -44,22 +45,25 @@ class EnrollComponent extends Component
         ->where('status', 'Active')
         ->first();
 
-        $inrollstatus = Enroll::Where('user_id',auth()->id())
-        ->Where('exam_id',$this->exams->id)
-        ->get();
+        $this->inrollstatus = Enroll::Where('user_id',auth()->id())
+        ->Where('exam_id',$this->exams->id)->latest()
+        ->first();
 
-        foreach($inrollstatus as $inrollstatuss){
-            if($inrollstatuss->attendance_status == 'Absent'){
-                $this->isDisabled = true;
+        /* foreach($this->inrollstatus as $inrollstatuss){ */
+            if($this->inrollstatus){
+                if($this->inrollstatus->approval == 'Pending' || $this->inrollstatus->approval == 'Approved'){
+                    $this->isDisabled = true;
+                }
+                elseif($this->inrollstatus->approval == 'Cancel' || $this->inrollstatus->approval == 'Expeired' || $this->inrollstatus->attendance_status == 'Present'){
+                    $this->isDisabled = false;
+                }
             }
-            elseif($inrollstatuss->attendance_status == 'Present'){
-                $this->isDisabled = true;
-            }
-        }
+            
+        /* } */
 
     }
     public function render()
     { 
-        return view('livewire.enroll-component',['exams'=>$this->exams]);
+        return view('livewire.enroll-component',['exams'=>$this->exams,'inrollstatus'=>$this->inrollstatus]);
     }
 }

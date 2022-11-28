@@ -17,7 +17,7 @@ class AddPaymentInfoToEnrollsTable extends Migration
             $table->string('phone_number');
             $table->string('trx_id')->unique()->nullable();
             $table->string('email');
-            $table->enum('approval',['Approved','Cancel','Pending'])->default('Pending');
+            $table->enum('approval',['Approved','Pending','Cancel','Expeired'])->default('Pending');
             $table->datetime('expeire_at')->nullable();
         });
     }
@@ -33,7 +33,7 @@ class AddPaymentInfoToEnrollsTable extends Migration
             $table->string('phone_number');
             $table->string('trx_id')->unique()->nullable();
             $table->string('email');
-            $table->enum('approval',['Approved','Cancel','Pending'])->default('Pending');
+            $table->enum('approval',['Approved','Pending','Cancel','Expeired'])->default('Pending');
             $table->datetime('expeire_at')->nullable();
         });
     }

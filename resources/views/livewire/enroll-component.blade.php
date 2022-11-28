@@ -5,6 +5,26 @@
                 <h2 class="text-2xl font-bold card bg-green-600 p-4 text-black-100 rounded-t-lg mx-auto">Exam Enrollment</h2>
                 <div class="mt-2 max-w-auto mx-auto card p-4 bg-white rounded-b-lg shadow-md">
                     <div class="grid grid-cols-1 gap-6 my-5">
+                        @if($inrollstatus)
+                        @if($inrollstatus->approval == 'Pending' )
+                        <div class="alert alert-dark" role="alert">
+                            Enroll Status <strong> Pending </strong>  
+                          </div>
+                          @elseif($inrollstatus->approval == 'Approved')
+                          <div class="alert alert-success" role="alert">
+                            Enroll Status <strong> Approved </strong>  
+                          </div>
+                          @elseif($inrollstatus->approval == 'Cancel')
+                          <div class="alert alert-warning" role="alert">
+                            Enroll Status <strong> Canceled Opps !! </strong>  Please Enroll Again..
+                          </div>
+                          @elseif($inrollstatus->approval == 'Expeired')
+                          <div class="alert alert-danger" role="alert">
+                            Enroll Status <strong> Expeired </strong>  Please Enroll Again..
+                          </div>
+                        @endif
+                        @endif
+                        
                         <table class="table table-striped table-hover table-bordered">
 			
                             <tbody><tr>

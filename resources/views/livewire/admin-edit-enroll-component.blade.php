@@ -27,6 +27,9 @@
                                     <option value="Cancel" {{ $enroll->approval === 'Cancel' ? 'selected' : '' }}>
                                         Cancel
                                     </option>
+                                    <option value="Expeired" {{ $enroll->approval === 'Expeired' ? 'selected' : '' }}>
+                                        Expeired
+                                    </option>
                                 </select>
                             </label>
                             <label class="block">
