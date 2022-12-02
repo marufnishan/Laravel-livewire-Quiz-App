@@ -11,7 +11,7 @@ class AdminShowEnrollsComponent extends Component
     use WithPagination;
     public function render()
     {
-        $enrolls = Enroll::paginate(10);
+        $enrolls = Enroll::latest()->paginate(10);
         $totalenrolls = Enroll::count();
         return view('livewire.admin-show-enrolls-component',['enrolls' => $enrolls,'totalenrolls'=>$totalenrolls]);
     }
